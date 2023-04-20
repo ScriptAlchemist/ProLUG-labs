@@ -6,12 +6,12 @@ src = "src"
 title = "ProLUG Labs Notebook"
 description = "Linux and System skills to get the job"
 
-[output.html]
-default-theme = "rust"
-preferred-dark-theme = "navy"
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/ScriptAlchemist/ProLUG-labs"
 git-repository-icon = "fa-github"
-edit-url-template = "https://github.com/ScriptAlchemist/ProLUG-labs/edit/main/{path}"
+edit-url-template = "https://github.com/ScriptAlchemist/ProLUG-labs/edit/main/{path}"
 site-url = "/ProLUG-labs/"
 
 [output.html.search]
@@ -21,4 +21,4 @@ boost-title = 2
 boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
-heading-split-level = 2
+heading-split-level = 3
