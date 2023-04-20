@@ -1,4 +1,4 @@
-# Het-Tanis ProLUG Labs
+# Het-Tanis ProLUG 🐧 Labs
 
 > Linux and System skills to get the job.
 >
@@ -6,13 +6,13 @@
 >
 > Book created and studied by Justin Bender
 
-# DO THE LABS: [Killer Coda Het-Tanis ProLUG Labs](https://killercoda.com/het-tanis/)
+## DO THE LABS: [Killer Coda Het-Tanis ProLUG 🐧 Labs](https://killercoda.com/het-tanis/)
 
-# READ THE BOOK: [ProLUG Labs Notebook](https://scriptalchemist.github.io/ProLUG-labs/)
+## READ THE BOOK: [ProLUG 🐧 Labs Notebook](https://scriptalchemist.github.io/ProLUG-labs/)
 
 ## Scott Champine
 
-Senior Linux and Network Engineer (20+ years). College Professor (14+ years). Amateur data scientist and system monitoring enthusiast. Industry certifications: CISSP, CCSP, AWS x 4, CKA, CKAD, Terraform, Vault, and others. Come see what Linux System Engineering is all about and join our Discord.
+Senior Linux 🐧 and Network Engineer (20+ years). College Professor (14+ years). Amateur data scientist and system monitoring enthusiast. Industry certifications: CISSP, CCSP, AWS x 4, CKA, CKAD, Terraform, Vault, and others. Come see what Linux System Engineering is all about and join our Discord.
 
 * [Twitch](https://www.twitch.tv/het_tanis)
 * [Discord](https://discord.gg/6QYeStX)

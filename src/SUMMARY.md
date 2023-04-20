@@ -1,6 +1,6 @@
 # Summary
 
-# ProLUG Labs
+# ProLUG 🐧 Labs
 
 ---
 
@@ -8,9 +8,9 @@
 
 ---
 
-# Linux Labs
+# 🐧 Linux Labs
 
-- [Let's do Linux](linux_labs/lets_do_linux/introduction.md)
+- [Let's do Linux 🐧](linux_labs/lets_do_linux/introduction.md)
     - [Look around a Linux
       System](linux_labs/lets_do_linux/look_around_a_linux_system.md)
     - [Checking kernel and
@@ -25,14 +25,14 @@
       connections](linux_labs/lets_do_linux/screen_commands_and_persistent_connections.md)
     - [DNS and finding
       resources](linux_labs/lets_do_linux/dns_and_finding_resources.md)
-- [Let's do Linux Configurations]()
+- [Let's do Linux Configurations 🐧]()
     - [NFS Sharing and persistent connection]()
     - [Apache webserver install and setup]()
     - [Grafana Monitoring of logs with Loki and Promtail]()
     - [Grafana Monitoring of Telemetry data with Prometheus and Node
       Exporter]()
     - [Install ClamAV on Linux]()
-- [Let's do Linux Security]()
+- [Let's do Linux Security 🐧]()
     - [Unusual User behavior - Attempted Login]()
     - [Unusual User behavior - Attempted Sudo]()
 
