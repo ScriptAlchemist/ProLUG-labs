@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -37,7 +37,7 @@
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -63,7 +63,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -118,6 +118,9 @@
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/ScriptAlchemist/ProLUG-labs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
                     </div>
@@ -613,7 +616,57 @@ Average:         0.00      0.00      0.00      0.00      0.00
 <h3 id="-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem"><a class="header" href="#-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem">💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?</a></h3>
 <h1 id="look-at-you-learning-linux--you-looked-around-the-os"><a class="header" href="#look-at-you-learning-linux--you-looked-around-the-os">Look at you, learning Linux 🐧! You looked around the OS!</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./checking_kernel_and_packages.html">Checking kernel and packages</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="checking-kernel-and-packages"><a class="header" href="#checking-kernel-and-packages">Checking kernel and packages</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="checking-kernel-and-packages-"><a class="header" href="#checking-kernel-and-packages-">Checking kernel and packages 🐧</a></h1>
+<blockquote>
+<p>💬Let's check the kernel and package info on the system 🐧 🐧 🐧</p>
+</blockquote>
+<hr />
+<h1 id="linux-commands-for-kernel-and-packages"><a class="header" href="#linux-commands-for-kernel-and-packages">Linux Commands for Kernel and Packages</a></h1>
+<h2 id="-echo-the-number-of-kernel-versions-that-are-stored-on-this-system-into-rootkernel"><a class="header" href="#-echo-the-number-of-kernel-versions-that-are-stored-on-this-system-into-rootkernel">🐧 Echo the number of kernel versions that are stored on this system into <code>/root/kernel</code></a></h2>
+<h2 id="-check-all-the-kernel-information"><a class="header" href="#-check-all-the-kernel-information">🐧 Check all the kernel information</a></h2>
+<p>Input:</p>
+<pre><code class="language-bash">uname -a
+</code></pre>
+<p>Example Output:</p>
+<pre><code>ubuntu $ uname -a
+Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<h2 id="-check-for-old-versions-of-the-kernel-that-are-on-the-system"><a class="header" href="#-check-for-old-versions-of-the-kernel-that-are-on-the-system">🐧 Check for old versions of the kernel that are on the system.</a></h2>
+<p>Input:</p>
+<pre><code class="language-bash">ls /boot/vm*
+</code></pre>
+<p>Example Output:</p>
+<pre><code>ubuntu $ ls /boot/vm*
+/boot/vmlinuz  /boot/vmlinuz-5.4.0-131-generic  /boot/vmlinuz.old
+</code></pre>
+<h2 id="-echo-the-number-of-version-into-rootkernel"><a class="header" href="#-echo-the-number-of-version-into-rootkernel">🐧 Echo the number of version into <code>/root/kernel</code></a></h2>
+<p>Input:</p>
+<pre><code class="language-bash">echo 1 &gt; /root/kernel
+</code></pre>
+<h2 id="-next-we-will-check-how-many-packages-are-on-the-system"><a class="header" href="#-next-we-will-check-how-many-packages-are-on-the-system">🐧 Next we will check how many packages are on the system.</a></h2>
+<p>Input:</p>
+<pre><code class="language-bash">dpkg -l | wc -l
+</code></pre>
+<p>Example Output:</p>
+<pre><code>ubuntu $ dpkg -l | wc -l
+724
+</code></pre>
+<h2 id="-what-is-the-version-of-ssh-on-this-system-server-and-client"><a class="header" href="#-what-is-the-version-of-ssh-on-this-system-server-and-client">🐧 What is the version of ssh on this system? Server and client.</a></h2>
+<p>Input:</p>
+<pre><code class="language-bash">dpkg -l | grep -i ssh
+</code></pre>
+<p>Example Output:</p>
+<pre><code>ubuntu $ dpkg -l | grep -i ssh
+ii  libssh-4:amd64                   0.9.3-2ubuntu2.2                  amd64        tiny C SSH library (OpenSSL flavor)
+ii  openssh-client                   1:8.2p1-4ubuntu0.5                amd64        secure shell (SSH) client, for secure access to remote machines
+ii  openssh-server                   1:8.2p1-4ubuntu0.5                amd64        secure shell (SSH) server, for secure access from remote machines
+ii  openssh-sftp-server              1:8.2p1-4ubuntu0.5                amd64        secure shell (SSH) sftp server module, for SFTP access from remote machines
+ii  ssh-import-id                    5.10-0ubuntu1                     all          securely retrieve an SSH public key and install it locally
+ii  sshfs                            3.6.0+repack+really2.10-0ubuntu1  amd64        filesystem client based on SSH File Transfer Protocol
+</code></pre>
+<h3 id="-client-is-named-openssh-client"><a class="header" href="#-client-is-named-openssh-client">💬 client is named <strong>openssh-client</strong></a></h3>
+<h3 id="-server-is-named-openssh-server"><a class="header" href="#-server-is-named-openssh-server">💬 server is named <strong>openssh-server</strong></a></h3>
+<p>Next up: <a href="linux_labs/lets_do_linux/./checking_disk_and_mount_points.html">Checking disk and mount points</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="checking-disk-and-mount-points"><a class="header" href="#checking-disk-and-mount-points">Checking disk and mount points</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ip-and-open-port-information"><a class="header" href="#ip-and-open-port-information">IP and open port information</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="connecting-to-systems-and-pushing-or-pulling-files"><a class="header" href="#connecting-to-systems-and-pushing-or-pulling-files">Connecting to systems and pushing or pulling files</a></h1>
