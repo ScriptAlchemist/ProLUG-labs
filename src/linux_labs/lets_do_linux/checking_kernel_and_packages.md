@@ -1,14 +1,16 @@
 # Checking kernel and packages 🐧
 
+## Linux Commands for Kernel and Packages
+
 > 💬Let's check the kernel and package info on the system 🐧 🐧 🐧
+>
+> 🐧 Echo the number of kernel versions that are stored on this system into `/root/kernel`
+>
+> 🐧 Check all the kernel information
 
 ---
 
-# Linux Commands for Kernel and Packages
-
-## 🐧 Echo the number of kernel versions that are stored on this system into `/root/kernel`
-
-## 🐧 Check all the kernel information
+## 🐧 Display information about the currently running operation system
 
 Input:
 

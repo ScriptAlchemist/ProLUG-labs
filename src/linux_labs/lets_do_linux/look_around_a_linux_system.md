@@ -1,12 +1,12 @@
 # Look around a Linux System 🐧
 
+## Linux Commands to gather information
+
 > Follow along and look around a new Linux system for the first time
 
 💬 Let's take a look around, shall we? 🐧 🐧 🐧
 
 ---
-
-# Linux Commands to gather information
 
 ## 🐧 First we check what version of Linux we're on:
 
