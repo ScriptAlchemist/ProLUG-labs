@@ -4,3 +4,4 @@ language = "en"
 multilingual = false
 src = "src"
 title = "ProLUG Labs Notebook"
+description = "Linux and System skills to get the job"
