@@ -6,7 +6,9 @@
 >
 > Book created and studied by Justin Bender
 
-[Read Me](https://scriptalchemist.github.io/ProLUG-labs/)
+# DO THE LABS: [Killer Coda Het-Tanis ProLUG Labs](https://killercoda.com/het-tanis/)
+
+# READ THE BOOK: [ProLUG Labs Notebook](https://scriptalchemist.github.io/ProLUG-labs/)
 
 ## Scott Champine
 
@@ -35,8 +37,15 @@ fit.
 
 ## Lab Dashboard: [Killer Coda Het-Tanis ProLUG Labs](https://killercoda.com/het-tanis/)
 
+## Read the hosted book version: [ProLUG Labs Notebook](https://scriptalchemist.github.io/ProLUG-labs/)
+
 ## Lab Types:
 
-Currently in this lab environment we have a few sections.
+Currently in this lab environment we have a few sections. (Hope fully
+these links work. If not please place an updated PR.
 
+* [Linux Labs](https://killercoda.com/het-tanis/course/Linux-Labs)
+* [Kubernetes Labs](https://killercoda.com/het-tanis/course/Kubernetes-Labs)
 * [Ansible Labs Killer Coda](https://killercoda.com/het-tanis/course/Ansible-Labs)
+* [Hashicorp Labs](https://killercoda.com/het-tanis/course/Hashicorp-Labs)
+

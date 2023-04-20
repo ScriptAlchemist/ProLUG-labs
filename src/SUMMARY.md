@@ -10,14 +10,21 @@
 
 # Linux Labs
 
-- [Let's do Linux]()
-    - [Look around a Linux System]()
-    - [Checking kernel and packages]()
-    - [Checking disk and mount points]()
-    - [IP and open port information]()
-    - [Connecting to systems and pusing or pulling files]()
-    - [Screen Commands and persistent connections]()
-    - [DNS and finding resources]()
+- [Let's do Linux](linux_labs/lets_do_linux/introduction.md)
+    - [Look around a Linux
+      System](linux_labs/lets_do_linux/look_around_a_linux_system.md)
+    - [Checking kernel and
+      packages](linux_labs/lets_do_linux/checking_kernel_and_packages.md)
+    - [Checking disk and mount
+      points](linux_labs/lets_do_linux/checking_disk_and_mount_points.md)
+    - [IP and open port
+      information](linux_labs/lets_do_linux/ip_and_open_port_information.md)
+    - [Connecting to systems and pushing or pulling
+      files](linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.md)
+    - [Screen Commands and persistent
+      connections](linux_labs/lets_do_linux/screen_commands_and_persistent_connections.md)
+    - [DNS and finding
+      resources](linux_labs/lets_do_linux/dns_and_finding_resources.md)
 - [Let's do Linux Configurations]()
     - [NFS Sharing and persistent connection]()
     - [Apache webserver install and setup]()
