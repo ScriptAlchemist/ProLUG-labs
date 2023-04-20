@@ -1,0 +1,1 @@
+# Checking kernel and packages
