@@ -22,3 +22,7 @@ boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
 heading-split-level = 3
+
+[output.html.playground]
+editable = true
+line-numbers = true

@@ -283,6 +283,10 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  1  0    780 107024 115804 1501412    0    0     0     0  291  202  0  1 99  0  0
 </code></pre>
 <h3 id="-what-are-you-seeing-here-is-this-system-under-high-memory-usage-or-not"><a class="header" href="#-what-are-you-seeing-here-is-this-system-under-high-memory-usage-or-not">💬 What are you seeing here? Is this system under high memory usage or not?</a></h3>
+<pre><code class="language-text editable">// What do you think?
+
+
+</code></pre>
 <h2 id="-we-can-check-the-overall-cpi-usage-of-the-system-every-second-for-5-seconds"><a class="header" href="#-we-can-check-the-overall-cpi-usage-of-the-system-every-second-for-5-seconds">🐧 We can check the overall CPI usage of the system every second for 5 seconds:</a></h2>
 <p>Input:</p>
 <pre><code class="language-bash">mpstat 1 5
@@ -300,6 +304,10 @@ Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 Average:     all    0.00    3.01    0.60    0.00    0.00    0.00    0.00    0.00    0.00   96.39
 </code></pre>
 <h3 id="-is-this-system-under-high-load-or-not"><a class="header" href="#-is-this-system-under-high-load-or-not">💬 Is this system under high load or not?</a></h3>
+<pre><code class="language-text editable">// What do you think?
+
+
+</code></pre>
 <h2 id="-next-we-check-what-processes-are-running-on-the-system"><a class="header" href="#-next-we-check-what-processes-are-running-on-the-system">🐧 Next we check what processes are running on the system:</a></h2>
 <p>Input:</p>
 <pre><code class="language-bash">ps -ef
@@ -442,6 +450,10 @@ root       26436   23574  0 05:41 pts/0    00:00:00 ps -ef
 </code></pre>
 <h3 id="-what-user-is-using-the-most-processes"><a class="header" href="#-what-user-is-using-the-most-processes">💬 What user is using the most processes?</a></h3>
 <h3 id="-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os"><a class="header" href="#-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os">💬 Do you think this system is doing any real work or just sitting there running an OS?</a></h3>
+<pre><code class="language-text editable">// What do you think?
+
+
+</code></pre>
 <h2 id="-next-lets-check-what-processes-are-executing-on-the-processor-every-second"><a class="header" href="#-next-lets-check-what-processes-are-executing-on-the-processor-every-second">🐧 Next let's check what processes are executing on the processor every second.</a></h2>
 <p>Input:</p>
 <pre><code class="language-bash">pidstat 1 5
@@ -478,6 +490,10 @@ Average:        0     28185    0.00    0.40    0.00    0.20    0.40     -  pidst
 <h3 id="-why-do-these-have-different-length-output"><a class="header" href="#-why-do-these-have-different-length-output">💬 Why do these have different length output?</a></h3>
 <h3 id="-what-processes-were-using-the-most-cpu"><a class="header" href="#-what-processes-were-using-the-most-cpu">💬 What processes were using the most CPU?</a></h3>
 <h3 id="-which-is-showing-up-the-most-often"><a class="header" href="#-which-is-showing-up-the-most-often">💬 Which is showing up the most often?</a></h3>
+<pre><code class="language-text editable">// What do you think?
+
+
+</code></pre>
 <h2 id="-next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds"><a class="header" href="#-next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds">🐧 Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?</a></h2>
 <p>Input:</p>
 <pre><code class="language-bash">iostat -xz 1 5
@@ -569,6 +585,10 @@ Average:       enp1s0      5.00      5.00      0.33      1.01      0.00      0.0
 Average:      docker0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 </code></pre>
 <h3 id="-what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-had-the-most-traffic"><a class="header" href="#-what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-had-the-most-traffic">💬 What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one had the most traffic?</a></h3>
+<pre><code class="language-text editable">// What do you think?
+
+
+</code></pre>
 <h2 id="-next-we-check-tcp-packets-and-errors"><a class="header" href="#-next-we-check-tcp-packets-and-errors">🐧 Next we check tcp packets and errors.</a></h2>
 <p>Input:</p>
 <pre><code class="language-bash">sar -n TCP,ETCP 1 5
@@ -614,6 +634,10 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 </code></pre>
 <h3 id="-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem"><a class="header" href="#-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem">💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?</a></h3>
+<pre><code class="language-text editable">// What do you think?
+
+
+</code></pre>
 <h1 id="look-at-you-learning-linux--you-looked-around-the-os"><a class="header" href="#look-at-you-learning-linux--you-looked-around-the-os">Look at you, learning Linux 🐧! You looked around the OS!</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./checking_kernel_and_packages.html">Checking kernel and packages</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="checking-kernel-and-packages-"><a class="header" href="#checking-kernel-and-packages-">Checking kernel and packages 🐧</a></h1>
@@ -708,11 +732,19 @@ ii  sshfs                            3.6.0+repack+really2.10-0ubuntu1  amd64    
         </script>
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
         <script>
             window.playground_copyable = true;
         </script>
 
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
 
         <script src="elasticlunr.min.js"></script>
         <script src="mark.min.js"></script>

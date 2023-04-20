@@ -120,6 +120,12 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 
 ### 💬 What are you seeing here? Is this system under high memory usage or not?
 
+```text,editable
+// What do you think?
+
+
+```
+
 ## 🐧 We can check the overall CPI usage of the system every second for 5 seconds:
 
 
@@ -145,6 +151,12 @@ Average:     all    0.00    3.01    0.60    0.00    0.00    0.00    0.00    0.00
 ```
 
 ### 💬 Is this system under high load or not?
+
+```text,editable
+// What do you think?
+
+
+```
 
 ## 🐧 Next we check what processes are running on the system:
 
@@ -305,6 +317,12 @@ ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
 
 ### 💬 Do you think this system is doing any real work or just sitting there running an OS?
 
+```text,editable
+// What do you think?
+
+
+```
+
 ## 🐧 Next let's check what processes are executing on the processor every second.
 
 Input:
@@ -350,6 +368,12 @@ Average:        0     28185    0.00    0.40    0.00    0.20    0.40     -  pidst
 ### 💬 What processes were using the most CPU?
 
 ### 💬 Which is showing up the most often?
+
+```text,editable
+// What do you think?
+
+
+```
 
 ## 🐧 Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?
 
@@ -464,6 +488,13 @@ Average:      docker0      0.00      0.00      0.00      0.00      0.00      0.0
 
 ### 💬 What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one had the most traffic?
 
+
+```text,editable
+// What do you think?
+
+
+```
+
 ## 🐧 Next we check tcp packets and errors.
 
 Input:
@@ -516,6 +547,12 @@ Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
 ### 💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?
+
+```text,editable
+// What do you think?
+
+
+```
 
 # Look at you, learning Linux 🐧! You looked around the OS!
 
