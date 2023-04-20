@@ -1,0 +1,6 @@
+[book]
+authors = ["Justin Bender"]
+language = "en"
+multilingual = false
+src = "src"
+title = "ProLUG Labs Notebook"
