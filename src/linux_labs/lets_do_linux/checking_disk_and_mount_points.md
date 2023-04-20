@@ -343,3 +343,4 @@ Filesystem      Inodes  IUsed   IFree IUse% Mounted on
 
 # Look at you, learning Linux! You looked at the disk space and usage! 🐧
 
+Next up: [IP and open port information](./ip_and_open_port_information.md)
