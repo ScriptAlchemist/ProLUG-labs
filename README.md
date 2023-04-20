@@ -6,6 +6,8 @@
 >
 > Book created and studied by Justin Bender
 
+[Read Me](https://scriptalchemist.github.io/ProLUG-labs/)
+
 ## Scott Champine
 
 Senior Linux and Network Engineer (20+ years). College Professor (14+ years). Amateur data scientist and system monitoring enthusiast. Industry certifications: CISSP, CCSP, AWS x 4, CKA, CKAD, Terraform, Vault, and others. Come see what Linux System Engineering is all about and join our Discord.
@@ -14,7 +16,7 @@ Senior Linux and Network Engineer (20+ years). College Professor (14+ years). Am
 * [Discord](https://discord.gg/6QYeStX)
 * [LinkedIn](https://www.linkedin.com/in/scott-champine/)
 
-## Justin Bender
+### Justin Bender
 
 As a former professional skydiver with over 5,000 jumps under my belt, I
 have developed a keen understanding of the importance of precision,
