@@ -6,7 +6,7 @@
 
 ---
 
-## 🐧 Check you ip address
+## 🐧 Check your ip address
 
 Input:
 
