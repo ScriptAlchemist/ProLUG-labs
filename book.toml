@@ -7,6 +7,8 @@ title = "ProLUG 🐧 Labs Notebook"
 description = "Linux 🐧 and System skills to get the job"
 
 [output.html]
+additional-css = ["theme/pagetoc.css"]
+additional-js  = ["theme/pagetoc.js"]
 default-theme = "rust"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/ScriptAlchemist/ProLUG-labs"
@@ -26,3 +28,5 @@ heading-split-level = 3
 [output.html.playground]
 editable = true
 line-numbers = true
+
+[preprocessor.pagetoc]

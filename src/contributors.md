@@ -6,3 +6,4 @@ Notebook. Big shout-out to them!
 * Scott Champine [Het Tanis](https://github.com/het-tanis)
 * Justin Bender [ScriptAlchemist](https://github.com/ScriptAlchemist)
 
+If you feel you're missing from this list, feel free to place a PR.
