@@ -17,4 +17,3 @@ because it's the base of everything else we will cover.
   * [Screen Commands and persistent connections](screen_commands_and_persistent_connections.md)
   * [DNS and finding resources](dns_and_finding_resources.md)
 
-

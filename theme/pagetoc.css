@@ -4,7 +4,7 @@
     }
 }
 
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width:1400px) {
     main {
         position: relative;
     }
@@ -14,11 +14,14 @@
         left: calc(100% + (var(--content-max-width))/4 - 140px);
         position: absolute;
     }
+    .sidetoc ::-webkit-scrollbar {
+        width: 10px;
+    }
     .pagetoc {
         position: fixed;
         width: 200px;
         height: calc(100vh - var(--menu-bar-height) - 0.67em * 4);
-        overflow: hidden;
+        overflow: auto;
     }
     .pagetoc a {
         border-left: 1px solid var(--sidebar-bg);
