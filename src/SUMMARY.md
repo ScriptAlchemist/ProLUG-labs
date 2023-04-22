@@ -88,4 +88,10 @@
 
 ---
 
+# VIM
+
+* [Basic VIM](tools/vim/basic_vim.md)
+
+---
+
 [Contributors](contributors.md)
