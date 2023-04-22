@@ -40,10 +40,7 @@ jobs:
           cargo install mdbook-pagetoc
           cargo install mdbook-admonish
       - name: Install and Build mdBook with Admonish
-        run: |
-          pushd book
-          eprintln "Installing mdbook-admonish (to book)"
-          mdbook-admonish install .
+        run:  mdbook-admonish install
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
