@@ -301,7 +301,7 @@ output.</p>
 <p><a class="admonition-anchor-link" href="#admonition-example-output-4"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ vmstat 1 5
+<pre><code class="language-bash">ubuntu $ vmstat 1 5
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
  0  0    780 106992 115796 1501412    0    0   106   666  197  359  3  1 95  1  0
@@ -334,7 +334,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 <p><a class="admonition-anchor-link" href="#admonition-example-output-5"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ mpstat 1 5
+<pre><code class="language-bash">ubuntu $ mpstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
 05:50:53     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
@@ -369,7 +369,7 @@ Average:     all    0.00    3.01    0.60    0.00    0.00    0.00    0.00    0.00
 <p><a class="admonition-anchor-link" href="#admonition-example-output-6"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ ps -ef
+<pre><code class="language-bash">ubuntu $ ps -ef
 UID          PID    PPID  C STIME TTY          TIME CMD
 root           1       0  0 04:02 ?        00:00:14 /sbin/init
 root           2       0  0 04:02 ?        00:00:00 [kthreadd]
@@ -510,7 +510,7 @@ root       26436   23574  0 05:41 pts/0    00:00:00 ps -ef
 <p><a class="admonition-anchor-link" href="#admonition-example-output-7"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
+<pre><code class="language-bash">ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
       1 UID
       1 daemon
       1 message+
@@ -543,7 +543,7 @@ root       26436   23574  0 05:41 pts/0    00:00:00 ps -ef
 <p><a class="admonition-anchor-link" href="#admonition-example-output-8"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ pidstat 1 5
+<pre><code class="language-bash">ubuntu $ pidstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
 06:00:32      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
@@ -597,7 +597,7 @@ Average:        0     28185    0.00    0.40    0.00    0.20    0.40     -  pidst
 <p><a class="admonition-anchor-link" href="#admonition-example-output-9"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ iostat -xz 1 5
+<pre><code class="language-bash">ubuntu $ iostat -xz 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
 avg-cpu:  %user   %nice %system %iowait  %steal   %idle
@@ -679,7 +679,7 @@ vda              0.00      0.00     0.00   0.00    0.00     0.00    2.00     24.
 <p><a class="admonition-anchor-link" href="#admonition-example-output-10"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ sar -n DEV 1 5
+<pre><code class="language-bash">ubuntu $ sar -n DEV 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
 06:17:04        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
@@ -736,7 +736,7 @@ Average:      docker0      0.00      0.00      0.00      0.00      0.00      0.0
 <p><a class="admonition-anchor-link" href="#admonition-example-output-11"></a></p>
 </summary>
 <div>
-<pre><code>ubuntu $ sar -n TCP,ETCP 1 5
+<pre><code class="language-bash">ubuntu $ sar -n TCP,ETCP 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
 06:19:07     active/s passive/s    iseg/s    oseg/s

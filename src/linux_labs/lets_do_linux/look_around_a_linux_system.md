@@ -110,7 +110,7 @@ vmstat 1 5
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ vmstat 1 5
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
@@ -139,7 +139,7 @@ mpstat 1 5
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ mpstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -170,7 +170,7 @@ ps -ef
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ ps -ef
 UID          PID    PPID  C STIME TTY          TIME CMD
 root           1       0  0 04:02 ?        00:00:14 /sbin/init
@@ -304,7 +304,7 @@ ps -ef | awk '{print$1}' | sort | uniq -c
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
       1 UID
       1 daemon
@@ -335,7 +335,7 @@ pidstat 1 5
 
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ pidstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -387,7 +387,7 @@ iostat -xz 1 5
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ iostat -xz 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -457,7 +457,7 @@ sar -n DEV 1 5
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ sar -n DEV 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -511,7 +511,7 @@ sar -n TCP,ETCP 1 5
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ sar -n TCP,ETCP 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
