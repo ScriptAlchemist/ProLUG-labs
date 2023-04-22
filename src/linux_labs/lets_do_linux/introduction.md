@@ -1,12 +1,11 @@
-# Let's do Linux
+# Let's Do Linux 🐧
 
 Each section is going to break down a few parts. We will be exploring
 Linux here. We just want to work up in steps. We will start with
 [Linux ~~Foundation~~](https://www.linuxfoundation.org/)
 because it's the base of everything else we will cover.
 
-
-## Sections we cover
+```admonish info title="Sections We Cover"
 
 - [Let's do Linux](introduction.md)
   * [Look around a Linux System](look_around_a_linux_system.md)
@@ -17,3 +16,4 @@ because it's the base of everything else we will cover.
   * [Screen Commands and persistent connections](screen_commands_and_persistent_connections.md)
   * [DNS and finding resources](dns_and_finding_resources.md)
 
+```
