@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js rust">
+<html lang="en" class="sidebar-visible no-js navy">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -30,6 +30,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../.\.\mdbook-admonish.css">
 
     </head>
     <body>
@@ -37,7 +38,7 @@
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -63,7 +64,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('rust')
+            html.classList.remove('navy')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -152,18 +153,36 @@
                 <div id="content" class="content">
                     <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
                         <h1 id="look-around-a-linux-system-"><a class="header" href="#look-around-a-linux-system-">Look around a Linux System 🐧</a></h1>
-<h2 id="linux-commands-to-gather-information"><a class="header" href="#linux-commands-to-gather-information">Linux Commands to gather information</a></h2>
-<blockquote>
+<h3 id="linux-commands-to-gather-information"><a class="header" href="#linux-commands-to-gather-information">Linux Commands to gather information</a></h3>
+<div id="admonition-summary" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="#admonition-summary"></a></p>
+</div>
+<div>
 <p>Follow along and look around a new Linux system for the first time</p>
-</blockquote>
+</div>
+</div>
 <p>💬 Let's take a look around, shall we? 🐧 🐧 🐧</p>
 <hr />
-<h2 id="-first-we-check-what-version-of-linux-were-on"><a class="header" href="#-first-we-check-what-version-of-linux-were-on">🐧 First we check what version of Linux we're on:</a></h2>
-<p>Input:</p>
+<h3 id="1-first-we-check-what-version-of-linux-were-on"><a class="header" href="#1-first-we-check-what-version-of-linux-were-on">1. First we check what version of Linux we're on:</a></h3>
+<div id="admonition-input" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">cat /etc/*release
 </code></pre>
-<p>Example Output:</p>
-<pre><code>ubuntu $ cat /etc/*release
+</div>
+</div>
+<details id="admonition-example-output" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">ubuntu $ cat /etc/*release
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=20.04
 DISTRIB_CODENAME=focal
@@ -181,42 +200,107 @@ PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 </code></pre>
-<h2 id="-next-we-check-the-kernel-version"><a class="header" href="#-next-we-check-the-kernel-version">🐧 Next we check the kernel version:</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="2-next-we-check-the-kernel-version"><a class="header" href="#2-next-we-check-the-kernel-version">2. Next we check the kernel version:</a></h3>
+<div id="admonition-input-1" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-1"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">uname -r
 </code></pre>
-<p>Example Output:</p>
-<pre><code>ubuntu $ uname -r
+</div>
+</div>
+<details id="admonition-example-output-1" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-1"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">ubuntu $ uname -r
 5.4.0-131-generic
 </code></pre>
-<h2 id="-we-might-want-to-know-how-long-the-system-has-been-up"><a class="header" href="#-we-might-want-to-know-how-long-the-system-has-been-up">🐧 We might want to know how long the system has been up:</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="3-we-might-want-to-know-how-long-the-system-has-been-up"><a class="header" href="#3-we-might-want-to-know-how-long-the-system-has-been-up">3. We might want to know how long the system has been up:</a></h3>
+<div id="admonition-input-2" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-2"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">uptime
 </code></pre>
-<p>Example Output:</p>
-<pre><code>ubuntu $ uptime
+</div>
+</div>
+<details id="admonition-example-output-2" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-2"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">ubuntu $ uptime
  05:23:23 up  1:21,  0 users,  load average: 0.01, 0.08, 0.05
 </code></pre>
-<h2 id="-next-we-might-want-to-see-how-the-system-booted-and-what-kernel"><a class="header" href="#-next-we-might-want-to-see-how-the-system-booted-and-what-kernel">🐧 Next we might want to see how the system booted and what kernel</a></h2>
-<p>parameters were passed when the system was started:</p>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="4-next-we-see-how-the-system-booted"><a class="header" href="#4-next-we-see-how-the-system-booted">4. Next we see how the system booted</a></h3>
+<h4 id="-what-kernel-parameters-were-passed-when-the-system-was-started"><a class="header" href="#-what-kernel-parameters-were-passed-when-the-system-was-started">💬 What kernel parameters were passed when the system was started?</a></h4>
+<div id="admonition-input-3" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-3"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">cat /proc/cmdline
 </code></pre>
-<p>Example Output:</p>
-<pre><code>ubuntu $ cat /proc/cmdline
+</div>
+</div>
+<details id="admonition-example-output-3" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-3"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">ubuntu $ cat /proc/cmdline
 BOOT_IMAGE=/boot/vmlinuz-5.4.0-131-generic root=LABEL=cloudimg-rootfs ro
 console=tty1 console=ttyS0
 </code></pre>
-<h1 id="linux-commands-to-dig-into-the-system"><a class="header" href="#linux-commands-to-dig-into-the-system">Linux Commands to dig into the system</a></h1>
+</div>
+</details>
+<hr />
+<h3 id="linux-commands-to-dig-into-the-system"><a class="header" href="#linux-commands-to-dig-into-the-system">Linux Commands to dig into the system</a></h3>
 <h2 id="-that-was-cool-but-lets-dig-deeper-"><a class="header" href="#-that-was-cool-but-lets-dig-deeper-">🐧 That was cool, but let's dig deeper 🧙</a></h2>
+<div id="admonition-summary-1" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="#admonition-summary-1"></a></p>
+</div>
+<div>
 <p>Do each command command and really think about the output you're looking
 at. You may run into them multiple times. If needed, you can compare the
 output.</p>
-<h2 id="-look-at-the-virtual-memory-usage-of-this-system"><a class="header" href="#-look-at-the-virtual-memory-usage-of-this-system">🐧 Look at the virtual memory usage of this system:</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="5-look-at-the-virtual-memory-usage-of-this-system"><a class="header" href="#5-look-at-the-virtual-memory-usage-of-this-system">5. Look at the virtual memory usage of this system:</a></h3>
+<div id="admonition-input-4" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-4"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">vmstat 1 5
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-4" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-4"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ vmstat 1 5
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
@@ -226,16 +310,30 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  0  0    780 107024 115804 1501404    0    0     0    20  311  217  2  0 98  0  0
  1  0    780 107024 115804 1501412    0    0     0     0  291  202  0  1 99  0  0
 </code></pre>
-<h3 id="-what-are-you-seeing-here-is-this-system-under-high-memory-usage-or-not"><a class="header" href="#-what-are-you-seeing-here-is-this-system-under-high-memory-usage-or-not">💬 What are you seeing here? Is this system under high memory usage or not?</a></h3>
+</div>
+</details>
+<h4 id="-what-are-you-seeing-here-is-this-system-under-high-memory-usage-or-not"><a class="header" href="#-what-are-you-seeing-here-is-this-system-under-high-memory-usage-or-not">💬 What are you seeing here? Is this system under high memory usage or not?</a></h4>
 <pre><code class="language-text editable">// What do you think?
 
 
 </code></pre>
-<h2 id="-we-can-check-the-overall-cpi-usage-of-the-system-every-second-for-5-seconds"><a class="header" href="#-we-can-check-the-overall-cpi-usage-of-the-system-every-second-for-5-seconds">🐧 We can check the overall CPI usage of the system every second for 5 seconds:</a></h2>
-<p>Input:</p>
+<h3 id="6-we-can-check-the-overall-cpi-usage-of-the-system-every-second-for-5-seconds"><a class="header" href="#6-we-can-check-the-overall-cpi-usage-of-the-system-every-second-for-5-seconds">6. We can check the overall CPI usage of the system every second for 5 seconds:</a></h3>
+<div id="admonition-input-5" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-5"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">mpstat 1 5
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-5" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-5"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ mpstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -247,16 +345,30 @@ Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 05:50:58     all    0.00    0.99    0.99    0.00    0.00    0.00    0.00    0.00    0.00   98.02
 Average:     all    0.00    3.01    0.60    0.00    0.00    0.00    0.00    0.00    0.00   96.39
 </code></pre>
-<h3 id="-is-this-system-under-high-load-or-not"><a class="header" href="#-is-this-system-under-high-load-or-not">💬 Is this system under high load or not?</a></h3>
+</div>
+</details>
+<h4 id="-is-this-system-under-high-load-or-not"><a class="header" href="#-is-this-system-under-high-load-or-not">💬 Is this system under high load or not?</a></h4>
 <pre><code class="language-text editable">// What do you think?
 
 
 </code></pre>
-<h2 id="-next-we-check-what-processes-are-running-on-the-system"><a class="header" href="#-next-we-check-what-processes-are-running-on-the-system">🐧 Next we check what processes are running on the system:</a></h2>
-<p>Input:</p>
+<h3 id="7-next-we-check-what-processes-are-running-on-the-system"><a class="header" href="#7-next-we-check-what-processes-are-running-on-the-system">7. Next we check what processes are running on the system:</a></h3>
+<div id="admonition-input-6" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-6"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ps -ef
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-6" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-6"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ps -ef
 UID          PID    PPID  C STIME TTY          TIME CMD
 root           1       0  0 04:02 ?        00:00:14 /sbin/init
@@ -379,11 +491,25 @@ systemd+   26405       1  0 05:40 ?        00:00:00 /lib/systemd/systemd-resolve
 root       26406       2  0 05:40 ?        00:00:00 [kworker/u2:3]
 root       26436   23574  0 05:41 pts/0    00:00:00 ps -ef
 </code></pre>
-<h3 id="-maybe-check-unique-values-return-inside-of-ps--ef"><a class="header" href="#-maybe-check-unique-values-return-inside-of-ps--ef">💬 Maybe check unique values return inside of <code>ps -ef</code>.</a></h3>
-<p>Input:</p>
+</div>
+</details>
+<h4 id="-maybe-check-unique-values-return-inside-of-ps--ef"><a class="header" href="#-maybe-check-unique-values-return-inside-of-ps--ef">💬 Maybe check unique values return inside of <code>ps -ef</code>.</a></h4>
+<div id="admonition-input-7" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-7"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ps -ef | awk '{print$1}' | sort | uniq -c
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-7" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-7"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
       1 UID
       1 daemon
@@ -392,17 +518,31 @@ root       26436   23574  0 05:41 pts/0    00:00:00 ps -ef
       1 syslog
       3 systemd+
 </code></pre>
-<h3 id="-what-user-is-using-the-most-processes"><a class="header" href="#-what-user-is-using-the-most-processes">💬 What user is using the most processes?</a></h3>
-<h3 id="-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os"><a class="header" href="#-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os">💬 Do you think this system is doing any real work or just sitting there running an OS?</a></h3>
+</div>
+</details>
+<h4 id="-what-user-is-using-the-most-processes"><a class="header" href="#-what-user-is-using-the-most-processes">💬 What user is using the most processes?</a></h4>
+<h4 id="-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os"><a class="header" href="#-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os">💬 Do you think this system is doing any real work or just sitting there running an OS?</a></h4>
 <pre><code class="language-text editable">// What do you think?
 
 
 </code></pre>
-<h2 id="-next-lets-check-what-processes-are-executing-on-the-processor-every-second"><a class="header" href="#-next-lets-check-what-processes-are-executing-on-the-processor-every-second">🐧 Next let's check what processes are executing on the processor every second.</a></h2>
-<p>Input:</p>
+<h3 id="8-next-lets-check-what-processes-are-executing-on-the-processor-every-second"><a class="header" href="#8-next-lets-check-what-processes-are-executing-on-the-processor-every-second">8. Next let's check what processes are executing on the processor every second.</a></h3>
+<div id="admonition-input-8" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-8"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">pidstat 1 5
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-8" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-8"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ pidstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -431,18 +571,32 @@ Average:        0     21636    0.20    0.20    0.00    0.00    0.40     -  kc-te
 Average:        0     23636    0.20    0.20    0.00    0.00    0.40     -  node
 Average:        0     28185    0.00    0.40    0.00    0.20    0.40     -  pidstat
 </code></pre>
-<h3 id="-why-do-these-have-different-length-output"><a class="header" href="#-why-do-these-have-different-length-output">💬 Why do these have different length output?</a></h3>
-<h3 id="-what-processes-were-using-the-most-cpu"><a class="header" href="#-what-processes-were-using-the-most-cpu">💬 What processes were using the most CPU?</a></h3>
-<h3 id="-which-is-showing-up-the-most-often"><a class="header" href="#-which-is-showing-up-the-most-often">💬 Which is showing up the most often?</a></h3>
+</div>
+</details>
+<h4 id="-why-do-these-have-different-length-output"><a class="header" href="#-why-do-these-have-different-length-output">💬 Why do these have different length output?</a></h4>
+<h4 id="-what-processes-were-using-the-most-cpu"><a class="header" href="#-what-processes-were-using-the-most-cpu">💬 What processes were using the most CPU?</a></h4>
+<h4 id="-which-is-showing-up-the-most-often"><a class="header" href="#-which-is-showing-up-the-most-often">💬 Which is showing up the most often?</a></h4>
 <pre><code class="language-text editable">// What do you think?
 
 
 </code></pre>
-<h2 id="-next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds"><a class="header" href="#-next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds">🐧 Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?</a></h2>
-<p>Input:</p>
+<h3 id="9-next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds"><a class="header" href="#9-next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds">9. Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?</a></h3>
+<div id="admonition-input-9" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-9"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">iostat -xz 1 5
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-9" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-9"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ iostat -xz 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -483,18 +637,48 @@ vda              0.00      0.00     0.00   0.00    0.00     0.00    2.00     24.
 
 
 </code></pre>
-<h3 id="-lets-do-one-for-30-seconds-every-5-seconds-i-wont-post-the-output-its-longer-than-we-need"><a class="header" href="#-lets-do-one-for-30-seconds-every-5-seconds-i-wont-post-the-output-its-longer-than-we-need">💬 Let's do one for 30 seconds every 5 seconds. I won't post the output. It's longer than we need.</a></h3>
-<p>Input:</p>
+</div>
+</details>
+<h4 id="-lets-do-one-for-30-seconds-every-5-seconds-i-wont-post-the-output-its-longer-than-we-need"><a class="header" href="#-lets-do-one-for-30-seconds-every-5-seconds-i-wont-post-the-output-its-longer-than-we-need">💬 Let's do one for 30 seconds every 5 seconds. I won't post the output. It's longer than we need.</a></h4>
+<div id="admonition-input-10" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-10"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">iostat -xz 5 6
 </code></pre>
-<h1 id="linux-commands-to-see-networking-traffic-and-load"><a class="header" href="#linux-commands-to-see-networking-traffic-and-load">Linux Commands to see networking traffic and load</a></h1>
-<h3 id="-now-lets-dig-a-little-deeper-into-networking-"><a class="header" href="#-now-lets-dig-a-little-deeper-into-networking-">💬 Now let's dig a little deeper into networking 🧙</a></h3>
-<h3 id="-do-each-command-and-think-about-what-output-youre-looking-at-you-may-run-them-multiple-times-if-needed-to-compare-the-output"><a class="header" href="#-do-each-command-and-think-about-what-output-youre-looking-at-you-may-run-them-multiple-times-if-needed-to-compare-the-output">💬 Do each command and think about what output you're looking at. You may run them multiple times. If needed to compare the output.</a></h3>
-<h2 id="-look-at-the-network-usage-and-load-of-the-system"><a class="header" href="#-look-at-the-network-usage-and-load-of-the-system">🐧 Look at the network usage and load of the system.</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<hr />
+<h3 id="linux-commands-to-see-networking-traffic-and-load"><a class="header" href="#linux-commands-to-see-networking-traffic-and-load">Linux Commands to see networking traffic and load</a></h3>
+<h4 id="-now-lets-dig-a-little-deeper-into-networking-"><a class="header" href="#-now-lets-dig-a-little-deeper-into-networking-">💬 Now let's dig a little deeper into networking 🧙</a></h4>
+<div id="admonition-summary-2" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="#admonition-summary-2"></a></p>
+</div>
+<div>
+<p>Do each command and think about what output you're looking at. You may run them multiple times. If needed to compare the output.</p>
+</div>
+</div>
+<h3 id="10-look-at-the-network-usage-and-load-of-the-system"><a class="header" href="#10-look-at-the-network-usage-and-load-of-the-system">10. Look at the network usage and load of the system.</a></h3>
+<div id="admonition-input-11" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-11"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">sar -n DEV 1 5
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-10" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-10"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ sar -n DEV 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -528,16 +712,30 @@ Average:           lo      0.00      0.00      0.00      0.00      0.00      0.0
 Average:       enp1s0      5.00      5.00      0.33      1.01      0.00      0.00      0.00      0.00
 Average:      docker0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 </code></pre>
-<h3 id="-what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-had-the-most-traffic"><a class="header" href="#-what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-had-the-most-traffic">💬 What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one had the most traffic?</a></h3>
+</div>
+</details>
+<h4 id="-what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-had-the-most-traffic"><a class="header" href="#-what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-had-the-most-traffic">💬 What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one had the most traffic?</a></h4>
 <pre><code class="language-text editable">// What do you think?
 
 
 </code></pre>
-<h2 id="-next-we-check-tcp-packets-and-errors"><a class="header" href="#-next-we-check-tcp-packets-and-errors">🐧 Next we check tcp packets and errors.</a></h2>
-<p>Input:</p>
+<h3 id="11-next-we-check-tcp-packets-and-errors"><a class="header" href="#11-next-we-check-tcp-packets-and-errors">11. Next we check tcp packets and errors.</a></h3>
+<div id="admonition-input-12" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-12"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">sar -n TCP,ETCP 1 5
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-11" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-11"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ sar -n TCP,ETCP 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 
@@ -577,7 +775,9 @@ Average:         0.00      0.00      3.00      3.00
 Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 </code></pre>
-<h3 id="-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem"><a class="header" href="#-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem">💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?</a></h3>
+</div>
+</details>
+<h4 id="-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem"><a class="header" href="#-do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem">💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?</a></h4>
 <pre><code class="language-text editable">// What do you think?
 
 

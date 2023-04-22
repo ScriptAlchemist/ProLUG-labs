@@ -1,24 +1,25 @@
 # Look around a Linux System 🐧
 
-## Linux Commands to gather information
+### Linux Commands to gather information
 
-> Follow along and look around a new Linux system for the first time
+```admonish summary
+Follow along and look around a new Linux system for the first time
+```
 
 💬 Let's take a look around, shall we? 🐧 🐧 🐧
 
 ---
 
-## 🐧 First we check what version of Linux we're on:
+### 1. First we check what version of Linux we're on:
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 cat /etc/*release
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 ubuntu $ cat /etc/*release
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=20.04
@@ -37,76 +38,78 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
+~~~
 
-## 🐧 Next we check the kernel version:
+### 2. Next we check the kernel version:
 
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 uname -r
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 ubuntu $ uname -r
 5.4.0-131-generic
 ```
+~~~
 
-## 🐧 We might want to know how long the system has been up:
+### 3. We might want to know how long the system has been up:
 
-
-Input:
-
+~~~admonish example title="Input"
 ```bash
 uptime
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 ubuntu $ uptime
  05:23:23 up  1:21,  0 users,  load average: 0.01, 0.08, 0.05
 ```
+~~~
 
-## 🐧 Next we might want to see how the system booted and what kernel
-  parameters were passed when the system was started:
+### 4. Next we see how the system booted
 
+#### 💬 What kernel parameters were passed when the system was started?
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 cat /proc/cmdline
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 ubuntu $ cat /proc/cmdline
 BOOT_IMAGE=/boot/vmlinuz-5.4.0-131-generic root=LABEL=cloudimg-rootfs ro
 console=tty1 console=ttyS0
 ```
+~~~
 
-# Linux Commands to dig into the system
+---
+
+### Linux Commands to dig into the system
 
 ## 🐧 That was cool, but let's dig deeper 🧙
 
+```admonish summary
 Do each command command and really think about the output you're looking
 at. You may run into them multiple times. If needed, you can compare the
 output.
+```
 
-## 🐧 Look at the virtual memory usage of this system:
+### 5. Look at the virtual memory usage of this system:
 
-
-Input:
-
+~~~admonish example title="Input"
 ```bash
 vmstat 1 5
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ vmstat 1 5
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
@@ -117,8 +120,9 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  0  0    780 107024 115804 1501404    0    0     0    20  311  217  2  0 98  0  0
  1  0    780 107024 115804 1501412    0    0     0     0  291  202  0  1 99  0  0
 ```
+~~~
 
-### 💬 What are you seeing here? Is this system under high memory usage or not?
+#### 💬 What are you seeing here? Is this system under high memory usage or not?
 
 ```text,editable
 // What do you think?
@@ -126,17 +130,15 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 
 ```
 
-## 🐧 We can check the overall CPI usage of the system every second for 5 seconds:
+### 6. We can check the overall CPI usage of the system every second for 5 seconds:
 
-
-Input:
-
+~~~admonish example title="Input"
 ```bash
 mpstat 1 5
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ mpstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
@@ -149,8 +151,9 @@ Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
 05:50:58     all    0.00    0.99    0.99    0.00    0.00    0.00    0.00    0.00    0.00   98.02
 Average:     all    0.00    3.01    0.60    0.00    0.00    0.00    0.00    0.00    0.00   96.39
 ```
+~~~
 
-### 💬 Is this system under high load or not?
+#### 💬 Is this system under high load or not?
 
 ```text,editable
 // What do you think?
@@ -158,17 +161,15 @@ Average:     all    0.00    3.01    0.60    0.00    0.00    0.00    0.00    0.00
 
 ```
 
-## 🐧 Next we check what processes are running on the system:
+### 7. Next we check what processes are running on the system:
 
-
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ps -ef
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ps -ef
 UID          PID    PPID  C STIME TTY          TIME CMD
@@ -292,17 +293,17 @@ systemd+   26405       1  0 05:40 ?        00:00:00 /lib/systemd/systemd-resolve
 root       26406       2  0 05:40 ?        00:00:00 [kworker/u2:3]
 root       26436   23574  0 05:41 pts/0    00:00:00 ps -ef
 ```
+~~~
 
-### 💬 Maybe check unique values return inside of `ps -ef`.
+#### 💬 Maybe check unique values return inside of `ps -ef`.
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ps -ef | awk '{print$1}' | sort | uniq -c
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
       1 UID
@@ -312,10 +313,11 @@ ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
       1 syslog
       3 systemd+
 ```
+~~~
 
-### 💬 What user is using the most processes?
+#### 💬 What user is using the most processes?
 
-### 💬 Do you think this system is doing any real work or just sitting there running an OS?
+#### 💬 Do you think this system is doing any real work or just sitting there running an OS?
 
 ```text,editable
 // What do you think?
@@ -323,16 +325,16 @@ ubuntu $ ps -ef | awk '{print $1}' | sort | uniq -c
 
 ```
 
-## 🐧 Next let's check what processes are executing on the processor every second.
+### 8. Next let's check what processes are executing on the processor every second.
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 pidstat 1 5
 ```
+~~~
 
-Example Output:
 
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ pidstat 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
@@ -362,12 +364,13 @@ Average:        0     21636    0.20    0.20    0.00    0.00    0.40     -  kc-te
 Average:        0     23636    0.20    0.20    0.00    0.00    0.40     -  node
 Average:        0     28185    0.00    0.40    0.00    0.20    0.40     -  pidstat
 ```
+~~~
 
-### 💬 Why do these have different length output?
+#### 💬 Why do these have different length output?
 
-### 💬 What processes were using the most CPU?
+#### 💬 What processes were using the most CPU?
 
-### 💬 Which is showing up the most often?
+#### 💬 Which is showing up the most often?
 
 ```text,editable
 // What do you think?
@@ -375,16 +378,15 @@ Average:        0     28185    0.00    0.40    0.00    0.20    0.40     -  pidst
 
 ```
 
-## 🐧 Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?
+### 9. Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 iostat -xz 1 5
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ iostat -xz 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
@@ -426,31 +428,35 @@ vda              0.00      0.00     0.00   0.00    0.00     0.00    2.00     24.
 
 
 ```
+~~~
 
-### 💬 Let's do one for 30 seconds every 5 seconds. I won't post the output. It's longer than we need.
+#### 💬 Let's do one for 30 seconds every 5 seconds. I won't post the output. It's longer than we need.
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 iostat -xz 5 6
 ```
+~~~
 
-# Linux Commands to see networking traffic and load
+---
 
-### 💬 Now let's dig a little deeper into networking 🧙
+### Linux Commands to see networking traffic and load
 
-### 💬 Do each command and think about what output you're looking at. You may run them multiple times. If needed to compare the output.
+#### 💬 Now let's dig a little deeper into networking 🧙
 
-## 🐧 Look at the network usage and load of the system.
+```admonish summary
+Do each command and think about what output you're looking at. You may run them multiple times. If needed to compare the output.
+```
 
-Input:
+### 10. Look at the network usage and load of the system.
 
+~~~admonish example title="Input"
 ```bash
 sar -n DEV 1 5
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ sar -n DEV 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
@@ -485,8 +491,9 @@ Average:           lo      0.00      0.00      0.00      0.00      0.00      0.0
 Average:       enp1s0      5.00      5.00      0.33      1.01      0.00      0.00      0.00      0.00
 Average:      docker0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 ```
+~~~
 
-### 💬 What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one had the most traffic?
+#### 💬 What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one had the most traffic?
 
 
 ```text,editable
@@ -495,16 +502,15 @@ Average:      docker0      0.00      0.00      0.00      0.00      0.00      0.0
 
 ```
 
-## 🐧 Next we check tcp packets and errors.
+### 11. Next we check tcp packets and errors.
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 sar -n TCP,ETCP 1 5
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ sar -n TCP,ETCP 1 5
 Linux 5.4.0-131-generic (ubuntu)        04/20/23        _x86_64_        (1 CPU)
@@ -545,8 +551,9 @@ Average:         0.00      0.00      3.00      3.00
 Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
+~~~
 
-### 💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?
+#### 💬 Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?
 
 ```text,editable
 // What do you think?

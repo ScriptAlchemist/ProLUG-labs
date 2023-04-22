@@ -8,7 +8,7 @@ Array.prototype.forEach.call(document.getElementsByClassName("pagetoc")[0].child
     });
 });
 
-var updateFunction = function() {
+var updateFunction = function(event) {
 
     var id;
     var elements = document.getElementsByClassName("header");
@@ -28,6 +28,7 @@ var updateFunction = function() {
             el.scrollIntoView({behavior: "smooth"});
         }
     });
+    event.preventDefault();
 };
 
 // Populate sidebar on load

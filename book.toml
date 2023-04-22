@@ -7,9 +7,9 @@ title = "ProLUG 🐧 Labs Notebook"
 description = "Linux 🐧 and System skills to get the job"
 
 [output.html]
-additional-css = ["theme/pagetoc.css"]
+additional-css = ["theme/pagetoc.css", '.\.\mdbook-admonish.css']
 additional-js  = ["theme/pagetoc.js"]
-default-theme = "rust"
+default-theme = "navy"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/ScriptAlchemist/ProLUG-labs"
 git-repository-icon = "fa-github"
@@ -30,4 +30,9 @@ editable = true
 line-numbers = true
 
 [preprocessor.pagetoc]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
+
 

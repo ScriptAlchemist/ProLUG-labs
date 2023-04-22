@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js rust">
+<html lang="en" class="sidebar-visible no-js navy">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -30,6 +30,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/pagetoc.css">
+        <link rel="stylesheet" href=".\.\mdbook-admonish.css">
 
     </head>
     <body>
@@ -37,7 +38,7 @@
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -63,7 +64,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('rust')
+            html.classList.remove('navy')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
