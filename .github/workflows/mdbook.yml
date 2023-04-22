@@ -39,13 +39,16 @@ jobs:
           cargo install --version ${MDBOOK_VERSION} mdbook
           cargo install mdbook-pagetoc
           cargo install mdbook-admonish
+      - name: Install and Build mdBook with Admonish
+        run: |
+          pushd book
+          eprintln "Installing mdbook-admonish (to book)"
+          mdbook-admonish install .
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
       - name: Build with mdBook
-        run: |
-          mdbook build
-          mdbook-admonish install
+        run:  mdbook build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
