@@ -4,7 +4,7 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Page not found - ProLUG 🐧 Labs Notebook</title>
-        <base href="/ProLUG-labs/">
+        <base href="/">
 
 
         <!-- Custom HTML head -->
@@ -31,7 +31,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/pagetoc.css">
-        <link rel="stylesheet" href=".\.\mdbook-admonish.css">
+        <link rel="stylesheet" href="mdbook-admonish.css">
 
     </head>
     <body>
@@ -170,6 +170,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
