@@ -153,46 +153,113 @@
                 <div id="content" class="content">
                     <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
                         <h1 id="checking-kernel-and-packages-"><a class="header" href="#checking-kernel-and-packages-">Checking kernel and packages 🐧</a></h1>
-<h2 id="linux-commands-for-kernel-and-packages"><a class="header" href="#linux-commands-for-kernel-and-packages">Linux Commands for Kernel and Packages</a></h2>
-<blockquote>
-<p>💬Let's check the kernel and package info on the system 🐧 🐧 🐧</p>
+<h3 id="linux-commands-for-kernel-and-packages"><a class="header" href="#linux-commands-for-kernel-and-packages">Linux Commands for Kernel and Packages</a></h3>
+<div id="admonition-summary" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="#admonition-summary"></a></p>
+</div>
+<div>
 <p>🐧 Echo the number of kernel versions that are stored on this system into <code>/root/kernel</code></p>
 <p>🐧 Check all the kernel information</p>
-</blockquote>
+</div>
+</div>
+<p>💬Let's check the kernel and package info on the system 🐧 🐧 🐧</p>
 <hr />
-<h2 id="-display-information-about-the-currently-running-operation-system"><a class="header" href="#-display-information-about-the-currently-running-operation-system">🐧 Display information about the currently running operation system</a></h2>
-<p>Input:</p>
+<h3 id="1-display-information-about-the-currently-running-operation-system"><a class="header" href="#1-display-information-about-the-currently-running-operation-system">1. Display information about the currently running operation system</a></h3>
+<div id="admonition-input" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">uname -a
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ uname -a
 Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
 </code></pre>
-<h2 id="-check-for-old-versions-of-the-kernel-that-are-on-the-system"><a class="header" href="#-check-for-old-versions-of-the-kernel-that-are-on-the-system">🐧 Check for old versions of the kernel that are on the system.</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="2-check-for-old-versions-of-the-kernel-that-are-on-the-system"><a class="header" href="#2-check-for-old-versions-of-the-kernel-that-are-on-the-system">2. Check for old versions of the kernel that are on the system.</a></h3>
+<div id="admonition-input-1" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-1"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ls /boot/vm*
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-1" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-1"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ls /boot/vm*
 /boot/vmlinuz  /boot/vmlinuz-5.4.0-131-generic  /boot/vmlinuz.old
 </code></pre>
-<h2 id="-echo-the-number-of-version-into-rootkernel"><a class="header" href="#-echo-the-number-of-version-into-rootkernel">🐧 Echo the number of version into <code>/root/kernel</code></a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="3-echo-the-number-of-version-into-rootkernel"><a class="header" href="#3-echo-the-number-of-version-into-rootkernel">3. Echo the number of version into <code>/root/kernel</code></a></h3>
+<div id="admonition-input-2" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-2"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">echo 1 &gt; /root/kernel
 </code></pre>
-<h2 id="-next-we-will-check-how-many-packages-are-on-the-system"><a class="header" href="#-next-we-will-check-how-many-packages-are-on-the-system">🐧 Next we will check how many packages are on the system.</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="4-next-we-will-check-how-many-packages-are-on-the-system"><a class="header" href="#4-next-we-will-check-how-many-packages-are-on-the-system">4. Next we will check how many packages are on the system.</a></h3>
+<div id="admonition-input-3" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-3"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">dpkg -l | wc -l
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-2" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-2"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ dpkg -l | wc -l
 724
 </code></pre>
-<h2 id="-what-is-the-version-of-ssh-on-this-system-server-and-client"><a class="header" href="#-what-is-the-version-of-ssh-on-this-system-server-and-client">🐧 What is the version of ssh on this system? Server and client.</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="5-what-is-the-version-of-ssh-on-this-system-server-and-client"><a class="header" href="#5-what-is-the-version-of-ssh-on-this-system-server-and-client">5. What is the version of ssh on this system? Server and client.</a></h3>
+<div id="admonition-input-4" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="#admonition-input-4"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">dpkg -l | grep -i ssh
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-3" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="#admonition-example-output-3"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ dpkg -l | grep -i ssh
 ii  libssh-4:amd64                   0.9.3-2ubuntu2.2                  amd64        tiny C SSH library (OpenSSL flavor)
 ii  openssh-client                   1:8.2p1-4ubuntu0.5                amd64        secure shell (SSH) client, for secure access to remote machines
@@ -201,8 +268,10 @@ ii  openssh-sftp-server              1:8.2p1-4ubuntu0.5                amd64    
 ii  ssh-import-id                    5.10-0ubuntu1                     all          securely retrieve an SSH public key and install it locally
 ii  sshfs                            3.6.0+repack+really2.10-0ubuntu1  amd64        filesystem client based on SSH File Transfer Protocol
 </code></pre>
-<h3 id="-client-is-named-openssh-client"><a class="header" href="#-client-is-named-openssh-client">💬 client is named <strong>openssh-client</strong></a></h3>
-<h3 id="-server-is-named-openssh-server"><a class="header" href="#-server-is-named-openssh-server">💬 server is named <strong>openssh-server</strong></a></h3>
+</div>
+</details>
+<h4 id="-client-is-named-openssh-client"><a class="header" href="#-client-is-named-openssh-client">💬 client is named <strong>openssh-client</strong></a></h4>
+<h4 id="-server-is-named-openssh-server"><a class="header" href="#-server-is-named-openssh-server">💬 server is named <strong>openssh-server</strong></a></h4>
 <p>Next up: <a href="./checking_disk_and_mount_points.html">Checking disk and mount points</a></p>
 
                     </main>
