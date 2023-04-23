@@ -21,7 +21,7 @@ uname -a
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ uname -a
 Linux ubuntu 5.4.0-131-generic #147-Ubuntu SMP Fri Oct 14 17:07:22 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
 ```
@@ -36,7 +36,7 @@ ls /boot/vm*
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ ls /boot/vm*
 /boot/vmlinuz  /boot/vmlinuz-5.4.0-131-generic  /boot/vmlinuz.old
 ```
@@ -59,7 +59,7 @@ dpkg -l | wc -l
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ dpkg -l | wc -l
 724
 ```
@@ -74,7 +74,7 @@ dpkg -l | grep -i ssh
 ~~~
 
 ~~~admonish collapsible=true title="Example Output"
-```
+```bash
 ubuntu $ dpkg -l | grep -i ssh
 ii  libssh-4:amd64                   0.9.3-2ubuntu2.2                  amd64        tiny C SSH library (OpenSSL flavor)
 ii  openssh-client                   1:8.2p1-4ubuntu0.5                amd64        secure shell (SSH) client, for secure access to remote machines
