@@ -2066,29 +2066,68 @@ rtt min/avg/max/mdev = 0.593/0.692/0.765/0.048 ms
 <h1 id="look-at-you-learning-linux-you-looked-at-the-disk-space-and-usage--1"><a class="header" href="#look-at-you-learning-linux-you-looked-at-the-disk-space-and-usage--1">Look at you, learning Linux! You looked at the disk space and usage! 🐧</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./connecting_to_systems_and_pushing_or_pulling.html">Connecting to systems and pushing or pulling files</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="connecting-to-systems-and-pushing-or-pulling-files"><a class="header" href="#connecting-to-systems-and-pushing-or-pulling-files">Connecting to systems and pushing or pulling files</a></h1>
-<h2 id="linux-commands-to-connect-to-another-system"><a class="header" href="#linux-commands-to-connect-to-another-system">Linux Commands to connect to another system</a></h2>
-<blockquote>
-<p>💬 Connect to the other server and look at the specifics of the ssh connection 🐧 🐧 🐧</p>
-</blockquote>
+<h3 id="linux-commands-to-connect-to-another-system"><a class="header" href="#linux-commands-to-connect-to-another-system">Linux Commands to connect to another system</a></h3>
+<div id="admonition-summary" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-summary"></a></p>
+</div>
+<div>
+<p>Connect to the other server and look at the specifics of the ssh connection 🐧 🐧 🐧</p>
+</div>
+</div>
 <hr />
-<h2 id="-check-your-ip-address"><a class="header" href="#-check-your-ip-address">🐧 Check your ip address</a></h2>
-<p>Input:</p>
+<h3 id="1-check-your-ip-address-1"><a class="header" href="#1-check-your-ip-address-1">1. Check your ip address</a></h3>
+<div id="admonition-input" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ssh node01
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output"></a></p>
+</summary>
+<div>
 <pre><code>controlplane $ ssh node01
 Last login: Sun Nov 13 17:27:09 2022 from 10.48.0.33
 </code></pre>
-<h2 id="-type-in-exit-to-return-to-the-original-system"><a class="header" href="#-type-in-exit-to-return-to-the-original-system">🐧 Type in exit to return to the original system</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="2-type-in-exit-to-return-to-the-original-system"><a class="header" href="#2-type-in-exit-to-return-to-the-original-system">2. Type in exit to return to the original system</a></h3>
+<div id="admonition-input-1" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-1"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">exit
 </code></pre>
-<h2 id="-check-system-uptime-and-one-layer-of-debug1"><a class="header" href="#-check-system-uptime-and-one-layer-of-debug1">🐧 Check system uptime and one layer of debug1</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="3-check-system-uptime-and-one-layer-of-debug1"><a class="header" href="#3-check-system-uptime-and-one-layer-of-debug1">3. Check system uptime and one layer of debug1</a></h3>
+<div id="admonition-input-2" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-2"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ssh -v node01 'uptime'
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ ssh -v node01 'uptime'
+</div>
+</div>
+<details id="admonition-example-output-1" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-1"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ ssh -v node01 'uptime'
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
@@ -2161,12 +2200,26 @@ Transferred: sent 2820, received 3088 bytes, in 0.0 seconds
 Bytes per second: sent 60469.7, received 66216.5
 debug1: Exit status 0
 </code></pre>
-<h2 id="-what-additional-information-was-shown-with-the--v-option-debug1"><a class="header" href="#-what-additional-information-was-shown-with-the--v-option-debug1">🐧 What additional information was shown with the -v option? (debug1)</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="4-what-additional-information-was-shown-with-the--v-option-debug1"><a class="header" href="#4-what-additional-information-was-shown-with-the--v-option-debug1">4. What additional information was shown with the -v option? (debug1)</a></h3>
+<div id="admonition-input-3" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-3"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ssh -vv node01 'uptime'
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ ssh -vv node01 'uptime'
+</div>
+</div>
+<details id="admonition-example-output-2" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-2"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ ssh -vv node01 'uptime'
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
@@ -2298,12 +2351,26 @@ Transferred: sent 2820, received 3088 bytes, in 0.0 seconds
 Bytes per second: sent 56551.2, received 61925.6
 debug1: Exit status 0
 </code></pre>
-<h2 id="-what-additional-information-was-shown-with-the--vv-option-debug2"><a class="header" href="#-what-additional-information-was-shown-with-the--vv-option-debug2">🐧 What additional information was shown with the -vv option? (debug2)</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="5-what-additional-information-was-shown-with-the--vv-option-debug2"><a class="header" href="#5-what-additional-information-was-shown-with-the--vv-option-debug2">5. What additional information was shown with the -vv option? (debug2)</a></h3>
+<div id="admonition-input-4" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-4"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ssh -vvv node01 'uptime'
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ ssh -vvv node01 'uptime' 
+</div>
+</div>
+<details id="admonition-example-output-3" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-3"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ ssh -vvv node01 'uptime' 
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
@@ -2506,43 +2573,91 @@ Transferred: sent 2820, received 3088 bytes, in 0.1 seconds
 Bytes per second: sent 47824.7, received 52369.8
 debug1: Exit status 0
 </code></pre>
-<h3 id="-what-additional-information-was-shown-with-the--vvv-option-debug3"><a class="header" href="#-what-additional-information-was-shown-with-the--vvv-option-debug3">💬 What additional information was shown with the -vvv option? (debug3)</a></h3>
-<h3 id="-so-we-looked-at-a-ssh-connection-over-to-node01-you-should-note-that-the-keys-are-bing-used-and-that-is-why-no-password-was-asked-to-connect-well-explore-that-more-shortly"><a class="header" href="#-so-we-looked-at-a-ssh-connection-over-to-node01-you-should-note-that-the-keys-are-bing-used-and-that-is-why-no-password-was-asked-to-connect-well-explore-that-more-shortly">💬 So we looked at a ssh connection over to node01. You should note that the keys are bing used and that is why no password was asked to connect. We'll explore that more shortly.</a></h3>
+</div>
+</details>
+<h4 id="-what-additional-information-was-shown-with-the--vvv-option-debug3"><a class="header" href="#-what-additional-information-was-shown-with-the--vvv-option-debug3">💬 What additional information was shown with the -vvv option? (debug3)</a></h4>
+<h4 id="-so-we-looked-at-a-ssh-connection-over-to-node01-you-should-note-that-the-keys-are-bing-used-and-that-is-why-no-password-was-asked-to-connect-well-explore-that-more-shortly"><a class="header" href="#-so-we-looked-at-a-ssh-connection-over-to-node01-you-should-note-that-the-keys-are-bing-used-and-that-is-why-no-password-was-asked-to-connect-well-explore-that-more-shortly">💬 So we looked at a ssh connection over to node01. You should note that the keys are bing used and that is why no password was asked to connect. We'll explore that more shortly.</a></h4>
 <pre><code class="language-text editable">// Did you notice any differences?
 
 
 </code></pre>
 <hr />
-<h2 id="linux-commands-to-push-and-pull-files"><a class="header" href="#linux-commands-to-push-and-pull-files">Linux Commands to push and pull files</a></h2>
-<blockquote>
-<p>💬 We'll push and pull files around to test scp of the systems 🐧 🐧 🐧</p>
+<h3 id="linux-commands-to-push-and-pull-files"><a class="header" href="#linux-commands-to-push-and-pull-files">Linux Commands to push and pull files</a></h3>
+<div id="admonition-summary-1" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-summary-1"></a></p>
+</div>
+<div>
 <p>🐧 scp is always &quot;from&quot; &quot;to&quot; on the command line, so the syntax is: <code>scp sourcetarget destinationtarget</code></p>
 <p>🐧 Push the <code>/root/motd</code> file over to node01 at location <code>/etc/motd</code> and then log in to verify that the file has been pushed</p>
 <p>🐧 Pull <code>/etc/crontab</code> from node01 to controlplane as file <code>/tmp/node01.crontab</code></p>
-</blockquote>
-<h2 id="-verify-the-file-you-have-at-rootmotd"><a class="header" href="#-verify-the-file-you-have-at-rootmotd">🐧 Verify the file you have at <code>/root/motd</code></a></h2>
-<p>Input:</p>
+</div>
+</div>
+<p>💬 Let's push and pull files around to test scp of the systems 🐧 🐧 🐧</p>
+<h3 id="6-verify-the-file-you-have-at-rootmotd"><a class="header" href="#6-verify-the-file-you-have-at-rootmotd">6. Verify the file you have at <code>/root/motd</code></a></h3>
+<div id="admonition-input-5" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-5"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">cksum /root/motd
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ cksum /root/motd
+</div>
+</div>
+<details id="admonition-example-output-4" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-4"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ cksum /root/motd
 37673703 669 /root/motd
 </code></pre>
-<h2 id="-copy-over-the-rootmotd-to-node01etcmotd"><a class="header" href="#-copy-over-the-rootmotd-to-node01etcmotd">🐧 Copy over the <code>/root/motd</code> to <code>node01:/etc/motd</code></a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="7-copy-over-the-rootmotd-to-node01etcmotd"><a class="header" href="#7-copy-over-the-rootmotd-to-node01etcmotd">7. Copy over the <code>/root/motd</code> to <code>node01:/etc/motd</code></a></h3>
+<div id="admonition-input-6" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-6"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">scp /root/motd node01:/etc/motd
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ scp /root/motd node01:/etc/motd
+</div>
+</div>
+<details id="admonition-example-output-5" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-5"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ scp /root/motd node01:/etc/motd
 motd                                                  100%  669 506.9KB/s   00:00
 </code></pre>
-<h3 id="-you-get-to-see-information-about-how-long-it-took-to-push-the-file"><a class="header" href="#-you-get-to-see-information-about-how-long-it-took-to-push-the-file">💬 You get to see information about how long it took to push the file</a></h3>
-<h2 id="-lets-ssh-over-and-see-our-motd"><a class="header" href="#-lets-ssh-over-and-see-our-motd">🐧 Let's ssh over and see our MOTD</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h4 id="-you-get-to-see-information-about-how-long-it-took-to-push-the-file"><a class="header" href="#-you-get-to-see-information-about-how-long-it-took-to-push-the-file">💬 You get to see information about how long it took to push the file</a></h4>
+<h3 id="8-lets-ssh-over-and-see-our-motd"><a class="header" href="#8-lets-ssh-over-and-see-our-motd">8. Let's ssh over and see our MOTD</a></h3>
+<div id="admonition-input-7" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-7"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">timeout 1 ssh node01
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ timeout 1 ssh node01
+</div>
+</div>
+<details id="admonition-example-output-6" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-6"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ timeout 1 ssh node01
 Last login: Thu Apr 20 13:34:00 2023 from 10.244.4.238
  .----------------.  .----------------.  .----------------.
 | .--------------. || .--------------. || .--------------. |
@@ -2557,41 +2672,99 @@ Last login: Thu Apr 20 13:34:00 2023 from 10.244.4.238
  '----------------'  '----------------'  '----------------'
 node01 $
 </code></pre>
-<h3 id="-lets-verify-the-file-exactly-the-size-we-think-it-is-over-there"><a class="header" href="#-lets-verify-the-file-exactly-the-size-we-think-it-is-over-there">💬 Let's verify the file exactly the size we think it is over there</a></h3>
-<h2 id="-we-can-see-them-so-well-set-that-to-yes-1"><a class="header" href="#-we-can-see-them-so-well-set-that-to-yes-1">🐧 We can see them, so we'll set that to yes.</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h4 id="-lets-verify-the-file-exactly-the-size-we-think-it-is-over-there"><a class="header" href="#-lets-verify-the-file-exactly-the-size-we-think-it-is-over-there">💬 Let's verify the file exactly the size we think it is over there</a></h4>
+<h3 id="9-we-can-see-them-so-well-set-that-to-yes"><a class="header" href="#9-we-can-see-them-so-well-set-that-to-yes">9. We can see them, so we'll set that to yes.</a></h3>
+<div id="admonition-input-8" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-8"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ssh node01 'cksum /etc/motd'
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ ssh node01 'cksum /etc/motd'
+</div>
+</div>
+<details id="admonition-example-output-7" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-7"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ ssh node01 'cksum /etc/motd'
 37673703 669 /etc/motd
 </code></pre>
-<h3 id="-you-should-now-both-see-the-motd-as-you-log-in-as-well-as-seeing-the-cksum-matches-what-you-did-in-step-1"><a class="header" href="#-you-should-now-both-see-the-motd-as-you-log-in-as-well-as-seeing-the-cksum-matches-what-you-did-in-step-1">💬 You should now both see the motd as you log in, as well as seeing the cksum matches what you did in step 1.</a></h3>
-<h3 id="-now-we-have-config-files-that-we-need-to-pull-and-give-to-the-vendor-lets-pull-those-logs-back-over-to-this-server-from-node01"><a class="header" href="#-now-we-have-config-files-that-we-need-to-pull-and-give-to-the-vendor-lets-pull-those-logs-back-over-to-this-server-from-node01">💬 Now we have config files that we need to pull and give to the vendor. Let's pull those logs back over to this server from node01</a></h3>
-<h2 id="-verify-cksum-of-etccrontab-file"><a class="header" href="#-verify-cksum-of-etccrontab-file">🐧 Verify cksum of /etc/crontab file</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h4 id="-you-should-now-both-see-the-motd-as-you-log-in-as-well-as-seeing-the-cksum-matches-what-you-did-in-step-1"><a class="header" href="#-you-should-now-both-see-the-motd-as-you-log-in-as-well-as-seeing-the-cksum-matches-what-you-did-in-step-1">💬 You should now both see the motd as you log in, as well as seeing the cksum matches what you did in step 1.</a></h4>
+<h4 id="-now-we-have-config-files-that-we-need-to-pull-and-give-to-the-vendor-lets-pull-those-logs-back-over-to-this-server-from-node01"><a class="header" href="#-now-we-have-config-files-that-we-need-to-pull-and-give-to-the-vendor-lets-pull-those-logs-back-over-to-this-server-from-node01">💬 Now we have config files that we need to pull and give to the vendor. Let's pull those logs back over to this server from node01</a></h4>
+<h3 id="10-verify-cksum-of-etccrontab-file"><a class="header" href="#10-verify-cksum-of-etccrontab-file">10. Verify cksum of /etc/crontab file</a></h3>
+<div id="admonition-input-9" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-9"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ssh node01 'cksum /etc/crontab'
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ ssh node01 'cksum /etc/crontab'
+</div>
+</div>
+<details id="admonition-example-output-8" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-8"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ ssh node01 'cksum /etc/crontab'
 638366506 1042 /etc/crontab
 </code></pre>
-<h2 id="-pull-file-over-to-tmpnode01crontab-from-node01"><a class="header" href="#-pull-file-over-to-tmpnode01crontab-from-node01">🐧 Pull file over to <code>/tmp/node01.crontab</code> from node01</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="11-pull-file-over-to-tmpnode01crontab-from-node01"><a class="header" href="#11-pull-file-over-to-tmpnode01crontab-from-node01">11. Pull file over to <code>/tmp/node01.crontab</code> from node01</a></h3>
+<div id="admonition-input-10" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-10"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">scp node01:/etc/crontab /tmp/node01.crontab
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ scp node01:/etc/crontab /tmp/node01.crontab
+</div>
+</div>
+<details id="admonition-example-output-9" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-9"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ scp node01:/etc/crontab /tmp/node01.crontab
 crontab                                               100% 1042     1.1MB/s   00:00    
 </code></pre>
-<h2 id="-so-now-that-youve-pulled-the-file-over-verify-that-its-exactly-the-same-as-you-just-saw-it"><a class="header" href="#-so-now-that-youve-pulled-the-file-over-verify-that-its-exactly-the-same-as-you-just-saw-it">🐧 So now that you've pulled the file over, verify that it's exactly the same as you just saw it</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="12-so-now-that-youve-pulled-the-file-over-verify-that-its-exactly-the-same-as-you-just-saw-it"><a class="header" href="#12-so-now-that-youve-pulled-the-file-over-verify-that-its-exactly-the-same-as-you-just-saw-it">12. So now that you've pulled the file over, verify that it's exactly the same as you just saw it</a></h3>
+<div id="admonition-input-11" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-input-11"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">cksum /tmp/node01.crontab
 </code></pre>
-<p>Example Output:</p>
-<pre><code>controlplane $ cksum /tmp/node01.crontab
+</div>
+</div>
+<details id="admonition-example-output-10" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/connecting_to_systems_and_pushing_or_pulling.html#admonition-example-output-10"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ cksum /tmp/node01.crontab
 638366506 1042 /tmp/node01.crontab
 </code></pre>
+</div>
+</details>
 <h1 id="look-at-you-learning-linux-you-ssh-ed-into-servers-and-pushed-or-pulled-files-as-needed-"><a class="header" href="#look-at-you-learning-linux-you-ssh-ed-into-servers-and-pushed-or-pulled-files-as-needed-">Look at you, learning Linux! You ssh-ed into servers and pushed or pulled files as needed! 🐧</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./screen_commands_and_persistent_connections.html">Screen Commands and persistent connections</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="screen-commands-and-persistent-connections"><a class="header" href="#screen-commands-and-persistent-connections">Screen Commands and persistent connections</a></h1>

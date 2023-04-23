@@ -1,45 +1,46 @@
 # Connecting to systems and pushing or pulling files
 
-## Linux Commands to connect to another system
+### Linux Commands to connect to another system
 
-> 💬 Connect to the other server and look at the specifics of the ssh connection 🐧 🐧 🐧
+```admonish summary
+Connect to the other server and look at the specifics of the ssh connection 🐧 🐧 🐧
+```
 
 ---
 
-## 🐧 Check your ip address
+### 1. Check your ip address
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ssh node01
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 controlplane $ ssh node01
 Last login: Sun Nov 13 17:27:09 2022 from 10.48.0.33
 ```
+~~~
 
-## 🐧 Type in exit to return to the original system
+### 2. Type in exit to return to the original system
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 exit
 ```
+~~~
 
-## 🐧 Check system uptime and one layer of debug1
+### 3. Check system uptime and one layer of debug1
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ssh -v node01 'uptime'
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ ssh -v node01 'uptime'
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -113,18 +114,18 @@ Transferred: sent 2820, received 3088 bytes, in 0.0 seconds
 Bytes per second: sent 60469.7, received 66216.5
 debug1: Exit status 0
 ```
+~~~
 
-## 🐧 What additional information was shown with the -v option? (debug1)
+### 4. What additional information was shown with the -v option? (debug1)
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ssh -vv node01 'uptime'
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ ssh -vv node01 'uptime'
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -257,18 +258,18 @@ Transferred: sent 2820, received 3088 bytes, in 0.0 seconds
 Bytes per second: sent 56551.2, received 61925.6
 debug1: Exit status 0
 ```
+~~~
 
-## 🐧 What additional information was shown with the -vv option? (debug2)
+### 5. What additional information was shown with the -vv option? (debug2)
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ssh -vvv node01 'uptime'
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ ssh -vvv node01 'uptime' 
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -472,10 +473,11 @@ Transferred: sent 2820, received 3088 bytes, in 0.1 seconds
 Bytes per second: sent 47824.7, received 52369.8
 debug1: Exit status 0
 ```
+~~~
 
-### 💬 What additional information was shown with the -vvv option? (debug3)
+#### 💬 What additional information was shown with the -vvv option? (debug3)
 
-### 💬 So we looked at a ssh connection over to node01. You should note that the keys are bing used and that is why no password was asked to connect. We'll explore that more shortly.
+#### 💬 So we looked at a ssh connection over to node01. You should note that the keys are bing used and that is why no password was asked to connect. We'll explore that more shortly.
 
 ```text,editable
 // Did you notice any differences?
@@ -485,59 +487,60 @@ debug1: Exit status 0
 
 ---
 
-## Linux Commands to push and pull files
+### Linux Commands to push and pull files
 
-> 💬 We'll push and pull files around to test scp of the systems 🐧 🐧 🐧
->
-> 🐧 scp is always "from" "to" on the command line, so the syntax is: `scp sourcetarget destinationtarget`
->
-> 🐧 Push the `/root/motd` file over to node01 at location `/etc/motd` and then log in to verify that the file has been pushed
->
-> 🐧 Pull `/etc/crontab` from node01 to controlplane as file `/tmp/node01.crontab`
+```admonish summary
+🐧 scp is always "from" "to" on the command line, so the syntax is: `scp sourcetarget destinationtarget`
 
-## 🐧 Verify the file you have at `/root/motd`
+🐧 Push the `/root/motd` file over to node01 at location `/etc/motd` and then log in to verify that the file has been pushed
 
-Input:
+🐧 Pull `/etc/crontab` from node01 to controlplane as file `/tmp/node01.crontab`
+```
 
+💬 Let's push and pull files around to test scp of the systems 🐧 🐧 🐧
+
+### 6. Verify the file you have at `/root/motd`
+
+~~~admonish example title="Input"
 ```bash
 cksum /root/motd
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ cksum /root/motd
 37673703 669 /root/motd
 ```
+~~~
 
-## 🐧 Copy over the `/root/motd` to `node01:/etc/motd`
+### 7. Copy over the `/root/motd` to `node01:/etc/motd`
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 scp /root/motd node01:/etc/motd
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ scp /root/motd node01:/etc/motd
 motd                                                  100%  669 506.9KB/s   00:00
 ```
+~~~
 
-### 💬 You get to see information about how long it took to push the file
+#### 💬 You get to see information about how long it took to push the file
 
-## 🐧 Let's ssh over and see our MOTD
+### 8. Let's ssh over and see our MOTD
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 timeout 1 ssh node01
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ timeout 1 ssh node01
 Last login: Thu Apr 20 13:34:00 2023 from 10.244.4.238
  .----------------.  .----------------.  .----------------.
@@ -553,72 +556,73 @@ Last login: Thu Apr 20 13:34:00 2023 from 10.244.4.238
  '----------------'  '----------------'  '----------------'
 node01 $
 ```
+~~~
 
-### 💬 Let's verify the file exactly the size we think it is over there
+#### 💬 Let's verify the file exactly the size we think it is over there
 
-## 🐧 We can see them, so we'll set that to yes.
+### 9. We can see them, so we'll set that to yes.
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ssh node01 'cksum /etc/motd'
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ ssh node01 'cksum /etc/motd'
 37673703 669 /etc/motd
 ```
+~~~
 
-### 💬 You should now both see the motd as you log in, as well as seeing the cksum matches what you did in step 1.
+#### 💬 You should now both see the motd as you log in, as well as seeing the cksum matches what you did in step 1.
 
-### 💬 Now we have config files that we need to pull and give to the vendor. Let's pull those logs back over to this server from node01
+#### 💬 Now we have config files that we need to pull and give to the vendor. Let's pull those logs back over to this server from node01
 
-## 🐧 Verify cksum of /etc/crontab file
+### 10. Verify cksum of /etc/crontab file
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ssh node01 'cksum /etc/crontab'
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ ssh node01 'cksum /etc/crontab'
 638366506 1042 /etc/crontab
 ```
+~~~
 
-## 🐧 Pull file over to `/tmp/node01.crontab` from node01
+### 11. Pull file over to `/tmp/node01.crontab` from node01
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 scp node01:/etc/crontab /tmp/node01.crontab
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ scp node01:/etc/crontab /tmp/node01.crontab
 crontab                                               100% 1042     1.1MB/s   00:00    
 ```
+~~~
 
-## 🐧 So now that you've pulled the file over, verify that it's exactly the same as you just saw it
+### 12. So now that you've pulled the file over, verify that it's exactly the same as you just saw it
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 cksum /tmp/node01.crontab
 ```
+~~~
 
-Example Output:
-
-```
+~~~admonish collapsible=true title="Example Output"
+```bash
 controlplane $ cksum /tmp/node01.crontab
 638366506 1042 /tmp/node01.crontab
 ```
+~~~
 
 # Look at you, learning Linux! You ssh-ed into servers and pushed or pulled files as needed! 🐧
 
