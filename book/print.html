@@ -1482,19 +1482,37 @@ Filesystem      Inodes  IUsed   IFree IUse% Mounted on
 <h1 id="look-at-you-learning-linux-you-looked-at-the-disk-space-and-usage-"><a class="header" href="#look-at-you-learning-linux-you-looked-at-the-disk-space-and-usage-">Look at you, learning Linux! You looked at the disk space and usage! 🐧</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./ip_and_open_port_information.html">IP and open port information</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ip-and-open-port-information"><a class="header" href="#ip-and-open-port-information">IP and Open Port Information</a></h1>
-<h2 id="linux-commands-for-network-information"><a class="header" href="#linux-commands-for-network-information">Linux Commands for network information</a></h2>
-<blockquote>
-<p>💬 Check network information 🐧 🐧 🐧</p>
+<h3 id="linux-commands-for-network-information"><a class="header" href="#linux-commands-for-network-information">Linux Commands for network information</a></h3>
+<div id="admonition-summary" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-summary"></a></p>
+</div>
+<div>
 <p>🐧 Put the name of your network interface into a file called <code>/root/interface</code></p>
 <p>🐧 Put the ip address of your network interface into a file called <code>/root/primary-ip</code></p>
 <p>🐧 Write the default route out to a file called <code>/root/default</code></p>
-</blockquote>
+</div>
+</div>
+<p>💬 Check network information 🐧 🐧 🐧</p>
 <hr />
-<h2 id="-check-your-ip-address"><a class="header" href="#-check-your-ip-address">🐧 Check your ip address</a></h2>
-<p>Input:</p>
+<h3 id="1-check-your-ip-address"><a class="header" href="#1-check-your-ip-address">1. Check your ip address</a></h3>
+<div id="admonition-input" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip addr
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ip addr 
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -1511,50 +1529,127 @@ Filesystem      Inodes  IUsed   IFree IUse% Mounted on
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
 </code></pre>
-<h2 id="-what-is-the-name-of-your-interface"><a class="header" href="#-what-is-the-name-of-your-interface">🐧 What is the name of your interface?</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="2-what-is-the-name-of-your-interface"><a class="header" href="#2-what-is-the-name-of-your-interface">2. What is the name of your interface?</a></h3>
+<div id="admonition-input-1" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-1"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip addr | grep enp | grep mtu | awk '{print $2}'
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-1" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-1"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ip addr | grep enp | grep mtu | awk '{print $2}'
 enp1s0:
 </code></pre>
-<h2 id="-put-that-value-in-a-file-rootinterface"><a class="header" href="#-put-that-value-in-a-file-rootinterface">🐧 Put that value in a file <code>/root/interface</code></a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="3-put-that-value-in-a-file-rootinterface"><a class="header" href="#3-put-that-value-in-a-file-rootinterface">3. Put that value in a file <code>/root/interface</code></a></h3>
+<div id="admonition-input-2" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-2"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip addr | grep enp | grep mtu | awk '{print $2}' &gt; /root/interface
 </code></pre>
-<h3 id="-there-are-other-ways-to-do-this-but-this-will-do-it-with-one-command"><a class="header" href="#-there-are-other-ways-to-do-this-but-this-will-do-it-with-one-command">💬 There are other ways to do this, but this will do it with one command</a></h3>
-<h2 id="-what-is-the-ip-of-your-interface"><a class="header" href="#-what-is-the-ip-of-your-interface">🐧 What is the ip of your interface?</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h4 id="-there-are-other-ways-to-do-this-but-this-will-do-it-with-one-command"><a class="header" href="#-there-are-other-ways-to-do-this-but-this-will-do-it-with-one-command">💬 There are other ways to do this, but this will do it with one command</a></h4>
+<h3 id="4-what-is-the-ip-of-your-interface"><a class="header" href="#4-what-is-the-ip-of-your-interface">4. What is the ip of your interface?</a></h3>
+<div id="admonition-input-3" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-3"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip addr | grep enp | grep inet | awk '{print $2}'
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-2" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-2"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ip addr | grep enp | grep inet | awk '{print $2}' 
 172.30.1.2/24
 </code></pre>
-<h2 id="-put-that-value-in-a-file-rootprinary-ip"><a class="header" href="#-put-that-value-in-a-file-rootprinary-ip">🐧 Put that value in a file <code>/root/prinary-ip</code></a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="5-put-that-value-in-a-file-rootprinary-ip"><a class="header" href="#5-put-that-value-in-a-file-rootprinary-ip">5. Put that value in a file <code>/root/prinary-ip</code></a></h3>
+<div id="admonition-input-4" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-4"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip addr | grep enp | grep inet | awk '{print $2}' &gt; /root/primary-ip
 </code></pre>
-<h2 id="-lets-pull-the-default-route-for-your-system"><a class="header" href="#-lets-pull-the-default-route-for-your-system">🐧 Let's pull the default route for your system</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="6-lets-pull-the-default-route-for-your-system"><a class="header" href="#6-lets-pull-the-default-route-for-your-system">6. Let's pull the default route for your system</a></h3>
+<div id="admonition-input-5" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-5"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip route
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-3" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-3"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ip route
 default via 172.30.1.1 dev enp1s0 
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
 172.30.1.0/24 dev enp1s0 proto kernel scope link src 172.30.1.2 
 </code></pre>
-<h2 id="-what-is-the-default-route-for-your-system-write-this-out-to-rootdefault"><a class="header" href="#-what-is-the-default-route-for-your-system-write-this-out-to-rootdefault">🐧 What is the default route for your system? Write this out to <code>/root/default</code></a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="7-what-is-the-default-route-for-your-system-write-this-out-to-rootdefault"><a class="header" href="#7-what-is-the-default-route-for-your-system-write-this-out-to-rootdefault">7. What is the default route for your system? Write this out to <code>/root/default</code></a></h3>
+<div id="admonition-input-6" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-6"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ip route | grep -i default | awk '{print $3}' &gt; /root/default
 </code></pre>
-<h2 id="-ping-the-default-gateway-3-times-and-verify-that-you-get-a-response-back"><a class="header" href="#-ping-the-default-gateway-3-times-and-verify-that-you-get-a-response-back">🐧 Ping the default gateway 3 times and verify that you get a response back</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="8-ping-the-default-gateway-3-times-and-verify-that-you-get-a-response-back"><a class="header" href="#8-ping-the-default-gateway-3-times-and-verify-that-you-get-a-response-back">8. Ping the default gateway 3 times and verify that you get a response back</a></h3>
+<div id="admonition-input-7" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-7"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ping -c3 `ip route | grep -i default | awk '{print $3}'`
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-4" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-4"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ping -c3 `ip route | grep -i default | awk '{print $3}'`
 PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
 64 bytes from 172.30.1.1: icmp_seq=1 ttl=64 time=0.113 ms
@@ -1565,18 +1660,38 @@ PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2034ms
 rtt min/avg/max/mdev = 0.113/0.169/0.217/0.042 ms
 </code></pre>
+</div>
+</details>
 <hr />
-<h2 id="linux-commands-for-open-ports"><a class="header" href="#linux-commands-for-open-ports">Linux Commands for open ports</a></h2>
-<blockquote>
-<p>💬 Check open ports on the system 🐧 🐧 🐧</p>
+<h3 id="linux-commands-for-open-ports"><a class="header" href="#linux-commands-for-open-ports">Linux Commands for open ports</a></h3>
+<div id="admonition-summary-1" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-summary-1"></a></p>
+</div>
+<div>
 <p>🐧 Can you find sshd and containerd listening on your system?</p>
 <p>🐧 If you can, write yes into the file <code>/root/ports</code></p>
-</blockquote>
-<h2 id="-check-what-ports-are-open-on-your-system"><a class="header" href="#-check-what-ports-are-open-on-your-system">🐧 Check what ports are open on your system</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<p>💬 Let's check open ports on the system 🐧 🐧 🐧</p>
+<h3 id="9-check-what-ports-are-open-on-your-system"><a class="header" href="#9-check-what-ports-are-open-on-your-system">9. Check what ports are open on your system</a></h3>
+<div id="admonition-input-8" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-8"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ss -ntulp
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-5" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-5"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ping -c3 `ip route | grep -i default | awk '{print $3}'`
 PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
 64 bytes from 172.30.1.1: icmp_seq=1 ttl=64 time=0.113 ms
@@ -1587,43 +1702,106 @@ PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2034ms
 rtt min/avg/max/mdev = 0.113/0.169/0.217/0.042 ms
 </code></pre>
-<p>Input:</p>
+</div>
+</details>
+<div id="admonition-input-9" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-9"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ss -ntulp | grep -E &quot;sshd|containerd&quot;
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-6" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-6"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ss -ntulp | grep -E &quot;sshd|containerd&quot;
 tcp    LISTEN  0       128                 0.0.0.0:22             0.0.0.0:*      users:((&quot;sshd&quot;,pid=614,fd=3))                                                  
 tcp    LISTEN  0       4096              127.0.0.1:38185          0.0.0.0:*      users:((&quot;containerd&quot;,pid=13689,fd=14))                                         
 tcp    LISTEN  0       128                    [::]:22                [::]:*      users:((&quot;sshd&quot;,pid=614,fd=4))                                                  
 </code></pre>
-<h3 id="-echo-yes-if-you-can-see-sshd-and-containerd-listening-to-rootports"><a class="header" href="#-echo-yes-if-you-can-see-sshd-and-containerd-listening-to-rootports">💬 Echo &quot;yes&quot; if you can see sshd and containerd listening to <code>/root/ports</code></a></h3>
-<h2 id="-we-can-see-them-so-well-set-that-to-yes"><a class="header" href="#-we-can-see-them-so-well-set-that-to-yes">🐧 We can see them, so we'll set that to yes</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="10-echo-yes-if-you-can-see-sshd-and-containerd-listening-to-rootports"><a class="header" href="#10-echo-yes-if-you-can-see-sshd-and-containerd-listening-to-rootports">10. Echo &quot;yes&quot; if you can see sshd and containerd listening to <code>/root/ports</code></a></h3>
+<h4 id="-we-can-see-them-so-well-set-that-to-yes"><a class="header" href="#-we-can-see-them-so-well-set-that-to-yes">💬 We can see them, so we'll set that to yes</a></h4>
+<div id="admonition-input-10" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-10"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">echo &quot;yes&quot; &gt; /root/ports
 </code></pre>
-<h2 id="-another-way-to-look-at-the-portsprocesses-for-sshd-and-containerd"><a class="header" href="#-another-way-to-look-at-the-portsprocesses-for-sshd-and-containerd">🐧 Another way to look at the <code>ports/processes</code> for sshd and containerd</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="11-another-way-to-look-at-the-portsprocesses-for-sshd-and-containerd"><a class="header" href="#11-another-way-to-look-at-the-portsprocesses-for-sshd-and-containerd">11. Another way to look at the <code>ports/processes</code> for sshd and containerd</a></h3>
+<div id="admonition-input-11" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-11"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">lsof -i :22
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-7" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-7"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ lsof -i :22
 COMMAND PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
 sshd    614 root    3u  IPv4  20882      0t0  TCP *:ssh (LISTEN)
 sshd    614 root    4u  IPv6  20893      0t0  TCP *:ssh (LISTEN)
 </code></pre>
-<h2 id="-connect-to-port-22-timeout-just-causes-it-to-drop-after-3-seconds"><a class="header" href="#-connect-to-port-22-timeout-just-causes-it-to-drop-after-3-seconds">🐧 Connect to port 22. Timeout just causes it to drop after 3 seconds</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="12-connect-to-port-22-timeout-just-causes-it-to-drop-after-3-seconds"><a class="header" href="#12-connect-to-port-22-timeout-just-causes-it-to-drop-after-3-seconds">12. Connect to port 22. Timeout just causes it to drop after 3 seconds</a></h3>
+<div id="admonition-input-12" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-12"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">timeout 3 nc 127.0.0.1 22
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-8" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-8"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ timeout 3 nc 127.0.0.1 22
 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
 </code></pre>
-<h2 id="-so-lets-stop-containerd-and-verify-that-the-process-is-no-longer-running-first-lets-check-the-status"><a class="header" href="#-so-lets-stop-containerd-and-verify-that-the-process-is-no-longer-running-first-lets-check-the-status">🐧 So let's stop containerd and verify that the process is no longer running. First let's check the status</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="13-so-lets-stop-containerd-and-verify-that-the-process-is-no-longer-running-first-lets-check-the-status"><a class="header" href="#13-so-lets-stop-containerd-and-verify-that-the-process-is-no-longer-running-first-lets-check-the-status">13. So let's stop containerd and verify that the process is no longer running. First let's check the status</a></h3>
+<div id="admonition-input-13" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-13"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">systemctl status containerd
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-9" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-9"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ systemctl status containerd
 ● containerd.service - containerd container runtime
      Loaded: loaded (/lib/systemd/system/containerd.service; enabled; vendor preset: en&gt;
@@ -1646,26 +1824,60 @@ Apr 11 13:35:13 ubuntu containerd[13689]: time=&quot;2023-04-11T13:35:13.9609310
 Apr 11 13:35:13 ubuntu containerd[13689]: time=&quot;2023-04-11T13:35:13.961135447Z&quot; level=i&gt;
 Apr 11 13:35:13 ubuntu containerd[13689]: time=&quot;2023-04-11T13:35:13.949109643Z&quot; level=i&gt;
 </code></pre>
-<h2 id="-you-might-need-to-click-q-to-escape-and-well-stop-it-stop-containerd"><a class="header" href="#-you-might-need-to-click-q-to-escape-and-well-stop-it-stop-containerd">🐧 You might need to click &quot;q&quot; to escape and we'll stop it. Stop containerd</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="14-you-might-need-to-click-q-to-escape-and-well-stop-it-stop-containerd"><a class="header" href="#14-you-might-need-to-click-q-to-escape-and-well-stop-it-stop-containerd">14. You might need to click &quot;q&quot; to escape and we'll stop it. Stop containerd</a></h3>
+<div id="admonition-input-14" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-14"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">systemctl stop containerd
 </code></pre>
-<h2 id="-verify-that-you-no-longer-see-containerd-running-or-the-port-open-on-the-system"><a class="header" href="#-verify-that-you-no-longer-see-containerd-running-or-the-port-open-on-the-system">🐧 Verify that you no longer see containerd running or the port open on the system</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<h3 id="15-verify-that-you-no-longer-see-containerd-running-or-the-port-open-on-the-system"><a class="header" href="#15-verify-that-you-no-longer-see-containerd-running-or-the-port-open-on-the-system">15. Verify that you no longer see containerd running or the port open on the system</a></h3>
+<div id="admonition-input-15" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-15"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ss -ntulp | grep containerd
 </code></pre>
+</div>
+</div>
 <hr />
-<h2 id="linux-commands-to-monitor-traffic"><a class="header" href="#linux-commands-to-monitor-traffic">Linux Commands to monitor traffic</a></h2>
-<blockquote>
-<p>💬 Check network traffic to our open system 🐧 🐧 🐧</p>
+<h3 id="linux-commands-to-monitor-traffic"><a class="header" href="#linux-commands-to-monitor-traffic">Linux Commands to monitor traffic</a></h3>
+<div id="admonition-summary-2" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-summary-2"></a></p>
+</div>
+<div>
 <p>🐧 Look at the throughput to your interfaces</p>
 <p>🐧 Create a file <code>/root/ubuntu.pcap</code> with 200 packets that can be read by wireshark later. (We don't look at it in the lab. We just create it)</p>
-</blockquote>
-<h2 id="-check-network-throughput-to-your-system-for-20-seconds"><a class="header" href="#-check-network-throughput-to-your-system-for-20-seconds">🐧 Check network throughput to your system for 20 seconds</a></h2>
-<p>Input:</p>
+</div>
+</div>
+<p>💬 Let's check network traffic to our open system 🐧 🐧 🐧</p>
+<h3 id="16-check-network-throughput-to-your-system-for-20-seconds"><a class="header" href="#16-check-network-throughput-to-your-system-for-20-seconds">16. Check network throughput to your system for 20 seconds</a></h3>
+<div id="admonition-input-16" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-16"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ifstat 2 10
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-10" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-10"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ifstat 2 10
       enp1s0             docker0      
  KB/s in  KB/s out   KB/s in  KB/s out
@@ -1680,12 +1892,26 @@ Apr 11 13:35:13 ubuntu containerd[13689]: time=&quot;2023-04-11T13:35:13.9491096
     0.17      0.33      0.00      0.00
     0.13      0.35      0.00      0.00
 </code></pre>
-<h3 id="-note-there-is-very-little-traffic-in-size-into-or-out-of-your-system"><a class="header" href="#-note-there-is-very-little-traffic-in-size-into-or-out-of-your-system">💬 Note: There is very little traffic (in size) into or out of your system</a></h3>
-<h2 id="-do-a-tcpdump-to-inspect-the-actual-traffic-into-your-system-capture-1000-packets-against-your-enp1s0-interface"><a class="header" href="#-do-a-tcpdump-to-inspect-the-actual-traffic-into-your-system-capture-1000-packets-against-your-enp1s0-interface">🐧 Do a tcpdump to inspect the actual traffic into your system. Capture 1000 packets against your <code>enp1s0</code> interface</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h4 id="-note-there-is-very-little-traffic-in-size-into-or-out-of-your-system"><a class="header" href="#-note-there-is-very-little-traffic-in-size-into-or-out-of-your-system">💬 Note: There is very little traffic (in size) into or out of your system</a></h4>
+<h3 id="17-do-a-tcpdump-to-inspect-the-actual-traffic-into-your-system-capture-1000-packets-against-your-enp1s0-interface"><a class="header" href="#17-do-a-tcpdump-to-inspect-the-actual-traffic-into-your-system-capture-1000-packets-against-your-enp1s0-interface">17. Do a tcpdump to inspect the actual traffic into your system. Capture 1000 packets against your <code>enp1s0</code> interface</a></h3>
+<div id="admonition-input-17" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-17"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">tcpdump -ni enp1s0 -s0 -c 1000
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-11" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-11"></a></p>
+</summary>
+<div>
 <pre><code>Cutting off beginning...
 
 12:32:44.680485 IP 172.30.1.2.40200 &gt; 10.57.2.9.34616: Flags [P.], seq 161968:162139, ack 1, win 501, options [nop,nop,TS val 3131427640 ecr 3052573401], length 171
@@ -1702,11 +1928,25 @@ Apr 11 13:35:13 ubuntu containerd[13689]: time=&quot;2023-04-11T13:35:13.9491096
 1024 packets received by filter
 24 packets dropped by kernel
 </code></pre>
-<h2 id="-lets-generate-a-pcap-file-that-can-be-used-by-wireshark-to-inspect-traffic-we-dont-have-wireshark-on-this-system"><a class="header" href="#-lets-generate-a-pcap-file-that-can-be-used-by-wireshark-to-inspect-traffic-we-dont-have-wireshark-on-this-system">🐧 Let's generate a <code>.pcap</code> file that can be used by wireshark to inspect traffic. (We don't have wireshark on this system)</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="18-lets-generate-a-pcap-file-that-can-be-used-by-wireshark-to-inspect-traffic-we-dont-have-wireshark-on-this-system"><a class="header" href="#18-lets-generate-a-pcap-file-that-can-be-used-by-wireshark-to-inspect-traffic-we-dont-have-wireshark-on-this-system">18. Let's generate a <code>.pcap</code> file that can be used by wireshark to inspect traffic. (We don't have wireshark on this system)</a></h3>
+<div id="admonition-input-18" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-18"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">for i in $(seq 1 5); do ping -c 10 www.google.com &amp; done; tcpdump -ni enp1s0 -s0 -c 200 -w $(hostname).pcap
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-12" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-12"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ for i in $(seq 1 5); do ping -c 10 www.google.com &amp; done; tcpdump -ni enp1s0 -s0 -c 200 -w $(hostname).pcap
 [1] 32253
 [2] 32254
@@ -1799,14 +2039,30 @@ rtt min/avg/max/mdev = 0.593/0.692/0.765/0.048 ms
 [4]-  Done                    ping -c 10 www.google.com
 [5]+  Done                    ping -c 10 www.google.com
 </code></pre>
-<h2 id="-verify-the-size-and-creation-of-the-file"><a class="header" href="#-verify-the-size-and-creation-of-the-file">🐧 Verify the size and creation of the file</a></h2>
-<p>Input:</p>
+</div>
+</details>
+<h3 id="19-verify-the-size-and-creation-of-the-file"><a class="header" href="#19-verify-the-size-and-creation-of-the-file">19. Verify the size and creation of the file</a></h3>
+<div id="admonition-input-19" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-input-19"></a></p>
+</div>
+<div>
 <pre><code class="language-bash">ls -lh /root/ubuntu.pcap
 </code></pre>
-<p>Example Output:</p>
+</div>
+</div>
+<details id="admonition-example-output-13" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/ip_and_open_port_information.html#admonition-example-output-13"></a></p>
+</summary>
+<div>
 <pre><code>ubuntu $ ls -lh /root/ubuntu.pcap
 -rw-r--r-- 1 tcpdump tcpdump 25K Apr 20 12:36 /root/ubuntu.pcap
 </code></pre>
+</div>
+</details>
 <h1 id="look-at-you-learning-linux-you-looked-at-the-disk-space-and-usage--1"><a class="header" href="#look-at-you-learning-linux-you-looked-at-the-disk-space-and-usage--1">Look at you, learning Linux! You looked at the disk space and usage! 🐧</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./connecting_to_systems_and_pushing_or_pulling.html">Connecting to systems and pushing or pulling files</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="connecting-to-systems-and-pushing-or-pulling-files"><a class="header" href="#connecting-to-systems-and-pushing-or-pulling-files">Connecting to systems and pushing or pulling files</a></h1>
@@ -1815,7 +2071,7 @@ rtt min/avg/max/mdev = 0.593/0.692/0.765/0.048 ms
 <p>💬 Connect to the other server and look at the specifics of the ssh connection 🐧 🐧 🐧</p>
 </blockquote>
 <hr />
-<h2 id="-check-your-ip-address-1"><a class="header" href="#-check-your-ip-address-1">🐧 Check your ip address</a></h2>
+<h2 id="-check-your-ip-address"><a class="header" href="#-check-your-ip-address">🐧 Check your ip address</a></h2>
 <p>Input:</p>
 <pre><code class="language-bash">ssh node01
 </code></pre>

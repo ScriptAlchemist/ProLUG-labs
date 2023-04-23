@@ -1,27 +1,28 @@
 # IP and Open Port Information
 
-## Linux Commands for network information
+### Linux Commands for network information
 
-> 💬 Check network information 🐧 🐧 🐧
->
-> 🐧 Put the name of your network interface into a file called `/root/interface`
->
-> 🐧 Put the ip address of your network interface into a file called `/root/primary-ip`
->
-> 🐧 Write the default route out to a file called `/root/default`
+```admonish summary
+🐧 Put the name of your network interface into a file called `/root/interface`
+
+🐧 Put the ip address of your network interface into a file called `/root/primary-ip`
+
+🐧 Write the default route out to a file called `/root/default`
+```
+
+💬 Check network information 🐧 🐧 🐧
 
 ---
 
-## 🐧 Check your ip address
+### 1. Check your ip address
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip addr
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ip addr 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -39,90 +40,90 @@ ubuntu $ ip addr
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
 ```
+~~~
 
-## 🐧 What is the name of your interface?
+### 2. What is the name of your interface?
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip addr | grep enp | grep mtu | awk '{print $2}'
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ip addr | grep enp | grep mtu | awk '{print $2}'
 enp1s0:
 ```
+~~~
 
-## 🐧 Put that value in a file `/root/interface`
+### 3. Put that value in a file `/root/interface`
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip addr | grep enp | grep mtu | awk '{print $2}' > /root/interface
 ```
+~~~
 
-### 💬 There are other ways to do this, but this will do it with one command
+#### 💬 There are other ways to do this, but this will do it with one command
 
-## 🐧 What is the ip of your interface?
+### 4. What is the ip of your interface?
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip addr | grep enp | grep inet | awk '{print $2}'
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ip addr | grep enp | grep inet | awk '{print $2}' 
 172.30.1.2/24
 ```
+~~~
 
-## 🐧 Put that value in a file `/root/prinary-ip`
+### 5. Put that value in a file `/root/prinary-ip`
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip addr | grep enp | grep inet | awk '{print $2}' > /root/primary-ip
 ```
+~~~
 
-## 🐧 Let's pull the default route for your system
+### 6. Let's pull the default route for your system
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip route
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ip route
 default via 172.30.1.1 dev enp1s0 
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
 172.30.1.0/24 dev enp1s0 proto kernel scope link src 172.30.1.2 
 ```
+~~~
 
-## 🐧 What is the default route for your system? Write this out to `/root/default`
+### 7. What is the default route for your system? Write this out to `/root/default`
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ip route | grep -i default | awk '{print $3}' > /root/default
 ```
+~~~
 
-## 🐧 Ping the default gateway 3 times and verify that you get a response back
+### 8. Ping the default gateway 3 times and verify that you get a response back
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ping -c3 `ip route | grep -i default | awk '{print $3}'`
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ping -c3 `ip route | grep -i default | awk '{print $3}'`
 PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
@@ -134,27 +135,29 @@ PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2034ms
 rtt min/avg/max/mdev = 0.113/0.169/0.217/0.042 ms
 ```
+~~~
 
 ---
 
-## Linux Commands for open ports
+### Linux Commands for open ports
 
-> 💬 Check open ports on the system 🐧 🐧 🐧
->
-> 🐧 Can you find sshd and containerd listening on your system?
->
-> 🐧 If you can, write yes into the file `/root/ports`
+```admonish summary
+🐧 Can you find sshd and containerd listening on your system?
 
-## 🐧 Check what ports are open on your system
+🐧 If you can, write yes into the file `/root/ports`
+```
 
-Input:
+💬 Let's check open ports on the system 🐧 🐧 🐧
 
+### 9. Check what ports are open on your system
+
+~~~admonish example title="Input"
 ```bash
 ss -ntulp
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ping -c3 `ip route | grep -i default | awk '{print $3}'`
 PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
@@ -166,74 +169,74 @@ PING 172.30.1.1 (172.30.1.1) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2034ms
 rtt min/avg/max/mdev = 0.113/0.169/0.217/0.042 ms
 ```
+~~~
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ss -ntulp | grep -E "sshd|containerd"
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ss -ntulp | grep -E "sshd|containerd"
 tcp    LISTEN  0       128                 0.0.0.0:22             0.0.0.0:*      users:(("sshd",pid=614,fd=3))                                                  
 tcp    LISTEN  0       4096              127.0.0.1:38185          0.0.0.0:*      users:(("containerd",pid=13689,fd=14))                                         
 tcp    LISTEN  0       128                    [::]:22                [::]:*      users:(("sshd",pid=614,fd=4))                                                  
 ```
+~~~
 
-### 💬 Echo "yes" if you can see sshd and containerd listening to `/root/ports`
+### 10. Echo "yes" if you can see sshd and containerd listening to `/root/ports`
 
-## 🐧 We can see them, so we'll set that to yes
+#### 💬 We can see them, so we'll set that to yes
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 echo "yes" > /root/ports
 ```
+~~~
 
-## 🐧 Another way to look at the `ports/processes` for sshd and containerd
+### 11. Another way to look at the `ports/processes` for sshd and containerd
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 lsof -i :22
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ lsof -i :22
 COMMAND PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
 sshd    614 root    3u  IPv4  20882      0t0  TCP *:ssh (LISTEN)
 sshd    614 root    4u  IPv6  20893      0t0  TCP *:ssh (LISTEN)
 ```
+~~~
 
-## 🐧 Connect to port 22. Timeout just causes it to drop after 3 seconds
+### 12. Connect to port 22. Timeout just causes it to drop after 3 seconds
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 timeout 3 nc 127.0.0.1 22
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ timeout 3 nc 127.0.0.1 22
 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
 ```
+~~~
 
-## 🐧 So let's stop containerd and verify that the process is no longer running. First let's check the status
+### 13. So let's stop containerd and verify that the process is no longer running. First let's check the status
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 systemctl status containerd
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ systemctl status containerd
 ● containerd.service - containerd container runtime
@@ -257,43 +260,46 @@ Apr 11 13:35:13 ubuntu containerd[13689]: time="2023-04-11T13:35:13.960931006Z" 
 Apr 11 13:35:13 ubuntu containerd[13689]: time="2023-04-11T13:35:13.961135447Z" level=i>
 Apr 11 13:35:13 ubuntu containerd[13689]: time="2023-04-11T13:35:13.949109643Z" level=i>
 ```
+~~~
 
-## 🐧 You might need to click "q" to escape and we'll stop it. Stop containerd
+### 14. You might need to click "q" to escape and we'll stop it. Stop containerd
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 systemctl stop containerd
 ```
+~~~
 
-## 🐧 Verify that you no longer see containerd running or the port open on the system
+### 15. Verify that you no longer see containerd running or the port open on the system
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ss -ntulp | grep containerd
 ```
+~~~
 
 ---
 
-## Linux Commands to monitor traffic
+### Linux Commands to monitor traffic
 
-> 💬 Check network traffic to our open system 🐧 🐧 🐧
->
-> 🐧 Look at the throughput to your interfaces
->
-> 🐧 Create a file `/root/ubuntu.pcap` with 200 packets that can be read by wireshark later. (We don't look at it in the lab. We just create it)
+```admonish summary
+🐧 Look at the throughput to your interfaces
 
-## 🐧 Check network throughput to your system for 20 seconds
+🐧 Create a file `/root/ubuntu.pcap` with 200 packets that can be read by wireshark later. (We don't look at it in the lab. We just create it)
+```
 
-Input:
 
+💬 Let's check network traffic to our open system 🐧 🐧 🐧
+
+### 16. Check network throughput to your system for 20 seconds
+
+~~~admonish example title="Input"
 ```bash
 ifstat 2 10
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ifstat 2 10
       enp1s0             docker0      
@@ -309,19 +315,19 @@ ubuntu $ ifstat 2 10
     0.17      0.33      0.00      0.00
     0.13      0.35      0.00      0.00
 ```
+~~~
 
-### 💬 Note: There is very little traffic (in size) into or out of your system
+#### 💬 Note: There is very little traffic (in size) into or out of your system
 
-## 🐧 Do a tcpdump to inspect the actual traffic into your system. Capture 1000 packets against your `enp1s0` interface
+### 17. Do a tcpdump to inspect the actual traffic into your system. Capture 1000 packets against your `enp1s0` interface
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 tcpdump -ni enp1s0 -s0 -c 1000
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 Cutting off beginning...
 
@@ -339,17 +345,17 @@ Cutting off beginning...
 1024 packets received by filter
 24 packets dropped by kernel
 ```
+~~~
 
-## 🐧 Let's generate a `.pcap` file that can be used by wireshark to inspect traffic. (We don't have wireshark on this system)
+### 18. Let's generate a `.pcap` file that can be used by wireshark to inspect traffic. (We don't have wireshark on this system)
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 for i in $(seq 1 5); do ping -c 10 www.google.com & done; tcpdump -ni enp1s0 -s0 -c 200 -w $(hostname).pcap
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ for i in $(seq 1 5); do ping -c 10 www.google.com & done; tcpdump -ni enp1s0 -s0 -c 200 -w $(hostname).pcap
 [1] 32253
@@ -443,21 +449,22 @@ rtt min/avg/max/mdev = 0.593/0.692/0.765/0.048 ms
 [4]-  Done                    ping -c 10 www.google.com
 [5]+  Done                    ping -c 10 www.google.com
 ```
+~~~
 
-## 🐧 Verify the size and creation of the file
+### 19. Verify the size and creation of the file
 
-Input:
-
+~~~admonish example title="Input"
 ```bash
 ls -lh /root/ubuntu.pcap
 ```
+~~~
 
-Example Output:
-
+~~~admonish collapsible=true title="Example Output"
 ```
 ubuntu $ ls -lh /root/ubuntu.pcap
 -rw-r--r-- 1 tcpdump tcpdump 25K Apr 20 12:36 /root/ubuntu.pcap
 ```
+~~~
 
 # Look at you, learning Linux! You looked at the disk space and usage! 🐧
 
