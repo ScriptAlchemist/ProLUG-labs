@@ -2767,7 +2767,434 @@ crontab                                               100% 1042     1.1MB/s   00
 </details>
 <h1 id="look-at-you-learning-linux-you-ssh-ed-into-servers-and-pushed-or-pulled-files-as-needed-"><a class="header" href="#look-at-you-learning-linux-you-ssh-ed-into-servers-and-pushed-or-pulled-files-as-needed-">Look at you, learning Linux! You ssh-ed into servers and pushed or pulled files as needed! 🐧</a></h1>
 <p>Next up: <a href="linux_labs/lets_do_linux/./screen_commands_and_persistent_connections.html">Screen Commands and persistent connections</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="screen-commands-and-persistent-connections"><a class="header" href="#screen-commands-and-persistent-connections">Screen Commands and persistent connections</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="screen-commands-and-persistent-connections-"><a class="header" href="#screen-commands-and-persistent-connections-">Screen Commands and persistent connections 🐧</a></h1>
+<h3 id="screen-commands-to-create-windows"><a class="header" href="#screen-commands-to-create-windows">Screen Commands to create windows</a></h3>
+<div id="admonition-summary" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-summary"></a></p>
+</div>
+<div>
+<p>🐧 Inspect out <code>/root/.screenrc</code> file</p>
+<p>🐧 Start screen</p>
+<p>🐧 Create multiple screen windows, rename them, and move between them</p>
+</div>
+</div>
+<p>💬 Let's learn all about Screen! 🐧🐧🐧</p>
+<hr />
+<h3 id="1-verify-your-rootscreenrc-file"><a class="header" href="#1-verify-your-rootscreenrc-file">1. Verify your <code>/root/.screenrc</code> file</a></h3>
+<div id="admonition-input" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">cat /root/.screenrc
+</code></pre>
+</div>
+</div>
+<details id="admonition-example-output" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ cat /root/.screenrc
+# GNU Screen - main configuration file
+# # All other .screenrc files will source this file to inherit settings.
+# # Author: Christian Wills - cwills.sys@gmail.com
+#
+# # Allow bold colors - necessary for some reason
+ attrcolor b &quot;.I&quot;
+#
+# # Tell screen how to set colors. AB = background, AF=foreground
+ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#
+# # Enables use of shift-PgUp and shift-PgDn
+ termcapinfo xterm|xterms|xs|rxvt ti@:te@
+#
+# # Erase background with current bg color
+ defbce &quot;on&quot;
+#
+# # Enable 256 color term
+ term xterm-256color
+#
+# # Cache 30000 lines for scroll back
+ defscrollback 30000
+#
+# # New mail notification
+# backtick 101 30 15 $HOME/bin/mailstatus.sh
+#
+ hardstatus alwayslastline
+# # Very nice tabbed colored hardstatus line
+ hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H
+%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+#
+# # change command character from ctrl-a to ctrl-b (emacs users may want this)
+#escape ^Bb
+#
+# # Hide hardstatus: ctrl-a f
+ bind f eval &quot;hardstatus ignore&quot;
+# # Show hardstatus: ctrl-a F
+ bind F eval &quot;hardstatus alwayslastline&quot;
+</code></pre>
+</div>
+</details>
+<h3 id="2-create-a-screen-session"><a class="header" href="#2-create-a-screen-session">2. Create a screen session</a></h3>
+<div id="admonition-input-1" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-1"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">screen
+</code></pre>
+</div>
+</div>
+<details id="admonition-example-output-1" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output-1"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">
+GNU Screen version 4.08.00 (GNU) 05-Feb-20
+
+Copyright (c) 2018-2020 Alexander Naumov, Amadeusz Slawinski
+Copyright (c) 2015-2017 Juergen Weigert, Alexander Naumov, Amadeusz Slawinski
+Copyright (c) 2010-2014 Juergen Weigert, Sadrul Habib Chowdhury
+Copyright (c) 2008-2009 Juergen Weigert, Michael Schroeder, Micah Cowan, Sadrul Habib Chowdhury
+Copyright (c) 1993-2007 Juergen Weigert, Michael Schroeder
+Copyright (c) 1987 Oliver Laumann
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation; either version 3, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program (see the
+file COPYING); if not, see https://www.gnu.org/licenses/, or contact Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA.
+
+Send bugreports, fixes, enhancements, t-shirts, money, beer &amp; pizza to screen-devel@gnu.org
+
+
+Capabilities:
++copy +remote-detach +power-detach +multi-attach +multi-user +font +color-256 +utf8 +rxvt
++builtin-telnet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  [Press Space or Return to end.]
+
+</code></pre>
+</div>
+</details>
+<h3 id="3-verify-that-you-are-attached-in-screen"><a class="header" href="#3-verify-that-you-are-attached-in-screen">3. Verify that you are attached in screen</a></h3>
+<div id="admonition-input-2" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-2"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">screen -ls
+</code></pre>
+</div>
+</div>
+<details id="admonition-example-output-2" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output-2"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ screen -ls
+There is a screen on:
+        111343.pts-0.controlplane       (04/24/23 10:10:46)     (Attached)
+1 Socket in /run/screen/S-root.
+</code></pre>
+</div>
+</details>
+<h3 id="4-split-the-screen-horizontally"><a class="header" href="#4-split-the-screen-horizontally">4. Split the screen horizontally</a></h3>
+<div id="admonition-keystroke" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke"></a></p>
+</div>
+<div>
+<p>Ctrl A + S (Control A and S): split screen horizontally</p>
+</div>
+</div>
+<details id="admonition-example-output-3" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output-3"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   0 bash                                                                                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  --                                                                                                
+</code></pre>
+</div>
+</details>
+<h3 id="5-jump-between-the-horizontal-screen-sessions"><a class="header" href="#5-jump-between-the-horizontal-screen-sessions">5. Jump between the horizontal screen sessions</a></h3>
+<div id="admonition-keystroke-1" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke-1"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">Ctrl A + Tab (Control A and Tab key): move over horizontal screens
+</code></pre>
+</div>
+</div>
+<h3 id="6-rename-the-window-youre-in-window1"><a class="header" href="#6-rename-the-window-youre-in-window1">6. Rename the window you're in &quot;Window1&quot;</a></h3>
+<div id="admonition-keystroke-2" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke-2"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">Ctrl A + A (Control A and A): rename window
+</code></pre>
+</div>
+</div>
+<h3 id="7-create-a-new-window-and-name-it-window2"><a class="header" href="#7-create-a-new-window-and-name-it-window2">7. Create a new window and name it &quot;Window2&quot;</a></h3>
+<div id="admonition-keystroke-3" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke-3"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">Ctrl A + C (Control A and C): new window
+Ctrl A + A (Control A and A): rename window
+</code></pre>
+</div>
+</div>
+<hr />
+<h3 id="screen-commands-for-logging-sessions"><a class="header" href="#screen-commands-for-logging-sessions">Screen Commands for logging sessions</a></h3>
+<div id="admonition-summary-1" class="admonition abstract">
+<div class="admonition-title">
+<p>Summary</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-summary-1"></a></p>
+</div>
+<div>
+<p>🐧 Detach from screen session and verify it is still there</p>
+<p>🐧 Reconnect and then kill the session</p>
+<p>🐧 Create a new screen session with logging enabled to
+<code>/root/screenlog.log</code></p>
+</div>
+</div>
+<h3 id="8-detach-from-screen-session"><a class="header" href="#8-detach-from-screen-session">8. Detach from screen session</a></h3>
+<div id="admonition-keystroke-4" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke-4"></a></p>
+</div>
+<div>
+<p>Ctrl A + D D (Control A and D and D): detach from screen</p>
+</div>
+</div>
+<h3 id="9-verify-that-screen-session-is-still-running"><a class="header" href="#9-verify-that-screen-session-is-still-running">9. Verify that screen session is still running</a></h3>
+<div id="admonition-input-3" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-3"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">screen -ls
+</code></pre>
+</div>
+</div>
+<details id="admonition-example-output-4" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output-4"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ screen -ls
+There is a screen on:
+        111343.pts-0.controlplane       (04/24/23 10:10:46)     (Detached)
+1 Socket in /run/screen/S-root.
+</code></pre>
+</div>
+</details>
+<h3 id="10-reconnect-to-that-session"><a class="header" href="#10-reconnect-to-that-session">10. Reconnect to that session</a></h3>
+<div id="admonition-input-4" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-4"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">screen -r
+</code></pre>
+</div>
+</div>
+<h3 id="11-kill-each-window-sessions"><a class="header" href="#11-kill-each-window-sessions">11. Kill each window sessions</a></h3>
+<div id="admonition-keystroke-5" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke-5"></a></p>
+</div>
+<div>
+<p>Ctrl A + K (Control A and K)
+y  #To really kill the window</p>
+</div>
+</div>
+<h3 id="12-create-a-screen-session-with-logging-enabled-to-rootscreenloglog"><a class="header" href="#12-create-a-screen-session-with-logging-enabled-to-rootscreenloglog">12. Create a screen session with logging enabled to <code>/root/screenlog.log</code></a></h3>
+<div id="admonition-input-5" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-5"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">screen -L -Logfile /root/screenlog.log
+</code></pre>
+</div>
+</div>
+<h3 id="13-execute-a-command-to-log-it-out"><a class="header" href="#13-execute-a-command-to-log-it-out">13. Execute a command to log it out</a></h3>
+<div id="admonition-input-6" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-6"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">for i in $(seq 100); do uptime; sleep 1; done
+</code></pre>
+</div>
+</div>
+<details id="admonition-example-output-5" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output-5"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ for i in $(seq 100); do uptime; sleep 1; done
+ 10:33:07 up  3:08,  1 user,  load average: 0.35, 0.37, 0.44
+ 10:33:08 up  3:08,  1 user,  load average: 0.35, 0.37, 0.44
+ 10:33:09 up  3:08,  1 user,  load average: 0.35, 0.37, 0.44
+ 10:33:10 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:11 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:12 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:13 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:14 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:15 up  3:08,  1 user,  load average: 0.53, 0.41, 0.45
+ 10:33:16 up  3:08,  1 user,  load average: 0.53, 0.41, 0.45
+ 10:33:17 up  3:08,  1 user,  load average: 0.53, 0.41, 0.45
+
+</code></pre>
+</div>
+</details>
+<h3 id="14-detach-the-screen"><a class="header" href="#14-detach-the-screen">14. Detach the screen</a></h3>
+<div id="admonition-keystroke-6" class="admonition example">
+<div class="admonition-title">
+<p>Keystroke</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-keystroke-6"></a></p>
+</div>
+<div>
+<p>Ctrl A + D D (Control A and D and D): detach from screen</p>
+</div>
+</div>
+<h3 id="15-check-log-file"><a class="header" href="#15-check-log-file">15. Check log file</a></h3>
+<div id="admonition-input-7" class="admonition example">
+<div class="admonition-title">
+<p>Input</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-input-7"></a></p>
+</div>
+<div>
+<pre><code class="language-bash">cat /root/screenlog.log
+</code></pre>
+</div>
+</div>
+<details id="admonition-example-output-6" class="admonition note">
+<summary class="admonition-title">
+<p>Example Output</p>
+<p><a class="admonition-anchor-link" href="linux_labs/lets_do_linux/screen_commands_and_persistent_connections.html#admonition-example-output-6"></a></p>
+</summary>
+<div>
+<pre><code class="language-bash">controlplane $ cat /root/screenlog.log
+controlplane $ for i in $(seq 100); do uptime; sleep 1; done
+ 10:33:07 up  3:08,  1 user,  load average: 0.35, 0.37, 0.44
+ 10:33:08 up  3:08,  1 user,  load average: 0.35, 0.37, 0.44
+ 10:33:09 up  3:08,  1 user,  load average: 0.35, 0.37, 0.44
+ 10:33:10 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:11 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:12 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:13 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:14 up  3:08,  1 user,  load average: 0.32, 0.37, 0.44
+ 10:33:15 up  3:08,  1 user,  load average: 0.53, 0.41, 0.45
+ 10:33:16 up  3:08,  1 user,  load average: 0.53, 0.41, 0.45
+ 10:33:17 up  3:08,  1 user,  load average: 0.53, 0.41, 0.45
+^C
+</code></pre>
+</div>
+</details>
+<h1 id="look-at-you-learning-linux--you-used-screen-to-run-different-sessions"><a class="header" href="#look-at-you-learning-linux--you-used-screen-to-run-different-sessions">Look at you, learning Linux 🐧! You used Screen to run different sessions!</a></h1>
+<p>Next up: <a href="linux_labs/lets_do_linux/./dns_and_finding_resources.html">DNS and Finding Resources</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dns-and-finding-resources"><a class="header" href="#dns-and-finding-resources">DNS and finding resources</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="basic-vim"><a class="header" href="#basic-vim">Basic Vim</a></h1>
 <p>Vim seems complicated and it is. The goal is to make things move a
