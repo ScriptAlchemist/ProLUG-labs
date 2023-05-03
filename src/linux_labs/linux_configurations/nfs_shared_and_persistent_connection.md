@@ -315,13 +315,7 @@ total 0
 
 ~~~admonish example title="Input"
 ```bash
-
-```
-~~~
-
-~~~admonish collapsible=true title="Example Output"
-```bash
-
+umount -l /mnt
 ```
 ~~~
 
