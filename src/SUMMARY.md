@@ -25,13 +25,16 @@
       Connections](linux_labs/lets_do_linux/screen_commands_and_persistent_connections.md)
     - [DNS and Finding
       Resources](linux_labs/lets_do_linux/dns_and_finding_resources.md)
-- [Let's Do Linux Configurations 🐧]()
-    - [NFS Sharing and Persistent Connection]()
-    - [Apache Webserver Install and Setup]()
-    - [Grafana Monitoring of Logs with Loki and Promtail]()
+- [Let's Do Linux Configurations 🐧](linux_labs/linux_configurations/introduction.md)
+    - [NFS Sharing and Persistent Connection](linux_labs/linux_configurations/nfs_shared_and_persistent_connection.md)
+    - [Apache Webserver Install and
+      Setup](linux_labs/linux_configurations/apache_webserver_install_and_setup.md)
+    - [Grafana Monitoring of Logs with Loki and
+      Promtail](linux_labs/linux_configurations/grafana_monitoring_of_logs_with_loki_and_promtail.md)
     - [Grafana Monitoring of Telemetry Data with Prometheus and Node
-      Exporter]()
-    - [Install ClamAV on Linux]()
+      Exporter](linux_labs/linux_configurations/grafana_monitoring_of_telemetry_data_with_prometheus_and_node_exporter.md)
+    - [Install ClamAV on
+      Linux](linux_labs/linux_configurations/install_clamav_on_linux.md)
 - [Let's Do Linux Security 🐧]()
     - [Unusual User Behavior - Attempted Login]()
     - [Unusual User Behavior - Attempted Sudo]()
